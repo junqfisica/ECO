@@ -3,6 +3,16 @@
 	"EngineAssociation": "4.14",
 	"Category": "",
 	"Description": "",
+	"Modules": [
+		{
+			"Name": "ElementalCombat",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		}
+	],
 	"Plugins": [
 		{
 			"Name": "SimpleHMD",
