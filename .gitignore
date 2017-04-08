@@ -1,3 +1,6 @@
+# /Yu ignore
+*ipch
+
 Binaries
 DerivedDataCache
 Intermediate
