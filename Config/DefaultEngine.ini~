@@ -55,7 +55,7 @@ bDefaultParticleCutouts=True
 r.MobileMSAA=2
 
 [/Script/EngineSettings.GameMapsSettings]
-EditorStartupMap=/Game/Maps/MultiplayerLevel.MultiplayerLevel
+EditorStartupMap=/Game/Maps/MainLevel.MainLevel
 LocalMapOptions=
 TransitionMap=None
 bUseSplitscreen=False
@@ -175,22 +175,6 @@ MinDesiredFrameRate=90.000000
 +CollisionChannelRedirects=(OldName="VehicleMovement",NewName="Vehicle")
 +CollisionChannelRedirects=(OldName="PawnMovement",NewName="Pawn")
 
-[OnlineSubsystem]
-DefaultPlatformService=Steam
-
-[OnlineSubsystemSteam]
-bEnabled=true
-SteamDevAppId=480
-GameServerQueryPort=27015
-bRelaunchInSteam=false
-GameVersion=1.0.0.0
-bVACEnabled=1
-bAllowP2PPacketRelay=true
-P2PConnectionTimeout=90
-
-[/Script/OnlineSubsystemSteam.SteamNetDriver]
-NetConnectionClassName="OnlineSubsystemSteam.SteamNetConnection"
-
 [/Script/Engine.PhysicsSettings]
 DefaultGravityZ=-980.000000
 DefaultTerminalVelocity=4000.000000
@@ -229,3 +213,5 @@ SyncSceneSmoothingFactor=0.000000
 AsyncSceneSmoothingFactor=0.990000
 InitialAverageFrameRate=0.016667
 
+[OnlineSubsystem]
+DefaultPlatformService=Null
