@@ -1,0 +1,22 @@
+Changes made to branch 4.16 on 2017/07/05:
+
+
+General:
+Changed the names from: 
+	*Multiplayer_MotionControllerPawn to MPMotionControllerPawn
+	*Multiplayer_BP_MotionController to BP_MPMotionController 
+	*Include the chinesseMask on the project.
+
+Blueprint classes:
+
+- BP_MPMotionController: 
+
+	*Removed the MotionController componet
+
+- MPMotionControllerPawn: 
+
+	*Include nodes (Deactivate any spell if active.). This destroy shield or basic attacks if activate after the player sucessufully finish a cast for an advanced attack. 
+
+
+ 
+
