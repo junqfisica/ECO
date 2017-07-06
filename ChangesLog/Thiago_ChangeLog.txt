@@ -1,3 +1,32 @@
+Changes made to branch 4.16 on 2017/07/06:
+
+
+IMPORTANT NOTE: The Local test in VR using only one HMD works very well. The HMD only sees the server camera. 
+
+Note: On single HMD test Server-Client move each other hands and head. However, it's all fine with two HMDs.
+
+General:
+
+	- Added the Command Line "Stereo On" at the multiplayer Map.
+
+Blueprint classes:
+
+- MPMotionControllerPawn:
+
+	Fixed bug on MotionControllerR component: Parameter Hand set as Right (instead of Left).
+	Spawn Hands now use SwitchHasAuthority, instead of IsLocallyControlled. 
+	Small delay (1sec) added before call SetInitialConditions. This fix the references on the Left Controller and Right Controller parameter. Before this references were none for the player2.  
+	PlayerBody was Toggle true on Rendering Owner No See.
+	A meshe call Mask was add as a child of PlayerBody. This mashe holds the mask.
+	Cleaned the thick event.
+	Changed function SetInitialConditions; initial elements are set in the function. This now works because hands are spawn with SwitchHasAuthority and a small delay was added to wait BP_MPMotionController to make its setup. 
+	New Macro IsInSilenceMode add. Unfinish on MotionControllerPawn
+
+- BP_MPMotionController: 
+
+	Enum parameter Hand is now replicated. This makes the hand mesh invert correclty and both hand meshes
+are correct in the client now. 
+  ===============================================================================================================
 Changes made to branch 4.16 on 2017/07/05:
 
 
@@ -6,16 +35,35 @@ Changed the names from:
 	*Multiplayer_MotionControllerPawn to MPMotionControllerPawn
 	*Multiplayer_BP_MotionController to BP_MPMotionController 
 	*Include the chinesseMask on the project.
+	*Clened the version from not used assets (3.15GB) to 1.32GB.
+	*Multiplayer level added to SwitchLevels
+
 
 Blueprint classes:
 
 - BP_MPMotionController: 
 
-	*Removed the MotionController componet
+	*Removed the MotionController component
 
 - MPMotionControllerPawn: 
 
 	*Include nodes (Deactivate any spell if active.). This destroy shield or basic attacks if activate after the player sucessufully finish a cast for an advanced attack. 
+
+	*Pawn now spawn BP_MPMotionController instead of BP_MotionController.
+
+	*Left Controller parameter changed from BP_MotionControler to BP_MPMotionController. 
+
+- BP_BasicAttack:
+
+	*Added reference to MPMotionControllerPawn
+
+- BP_Shield:
+
+	*Added reference to MPMotionControllerPawn
+
+- BP_Barrier:
+
+	*Added reference to MPMotionControllerPawn
 
 
  
