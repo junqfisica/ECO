@@ -1,7 +1,138 @@
+Changes made to branch 4.16 on 2017/07/06:
+
+General:
+- Added new map NoVR_MainMenu which displays the MainMenu widget blueprint.
+
+- Added support for OnlineSubsystemSteam in the DefaultEngine.ini file. This is what allows one to play in Lan or online.
+
+- Added blueprint widget classes MainMenu, HostMenu, ServerMenu, LoadingScreen, ServerRow and ErrorDialog.
+
+Blueprint widgets
+- ErrorDialog:
+      Added variables:
+        Default:
+            OkButton => UMG Button
+            Message => Text (bound to UMG Text)
+      Added OnClicked event for OkButton; displays MainMenu widget.
+      Added get and set functions for Message.
+
+- ServerRow:
+      Added variables:
+        Default:
+            ServerSelectionButton => UMG Button
+            SearchResults => BlueprintSessionResult (holds the session created when searched for it in the ServerMenu blueprint widget)
+            PlayerCounts => Text
+      Added function SetServerSearchResult, Category Default; it sets SearchResults and PlayerCounts.
+      Added binding functions for UMG Text Server Name, UMG Text Player Count and UMG Text Ping.
+      Added OnClicked event for ServerSelectionButton; calls MyGameInstance event JoinServer.
+
+- ServerMenu:
+      Added variables:
+        Default:
+            BackButton => UMG Button
+            RefreshButton => UMG Button
+            ScrollingServers => UMG ScrollBox (displays found sessions)
+            StatusText => Text
+            StatusVisibility => ESlateVisibility
+            RefreshButtonEnabled => Boolean (default = false; determines when the refresh button can be used)
+            FoundSessionWidgets => array of ServerRow blueprint widget (sessions to be displayed)
+            FoundSessions => array of BlueprintSessionResult (the actual sessions found)
+      Added function ClearPreviousResults, Category Default.
+      Added binding function for status messages content; uses StatusText.
+      Added binding function for status messages visibility; uses StatusVisibility.
+      Added binding function for RefreshButtonEnabled.
+      Added macro RefreshServers which clears previous results and performs new searches and disable RefreshButton when searching.
+      Added Onclicked event for each UMG Button; BackButton just returns to MainMenu and Refresh calls the macro RefreshServers.
+      Overrided event Contruct simply calls RefreshServers.
+
+- HostMenu:
+      Added variables:
+        Server Settings:
+            ServerNameText => Text (not used when connecting via blueprint)
+            MaxPlayers => Integer (default = 2)
+            NumberOfPlayers => Integer (default = 2)
+            EnableAccept => Boolean (default = true; does not change as the AcceptButton is to be always enabled)
+        Default:
+            UserServerName => UMG TextBox (not used when connecting via blueprint)
+            DecreasePlayers => UMG Button (decreases NumberOfPlayers value when clicked; minimum 0)
+            IncreasePlayers => UMG Button (increases NumberOfPlayers value when clicked; maximum 2)
+            BackButton => UMG Button
+            AcceptButton => UMG Button
+            GameInstanceReference => MyGameInstance 
+      Overrided event Contruct gets used GameInstance and sets GameInstanceReference to its reference.
+      Added Onclicked event for BackButton; shows MainMenu.
+      Added Onclicked event for AcceptButton; calls MyGameInstance event HostMatchEvent with the defined setting.
+      Added Onclicked event for DecreasePlayers.
+      Added Onclicked event for IncreasePlayers.
+      Added OnTextChanged event for UserServerName; not used.
+      Added binding function GetNumberOfPlayersText; converts NumberOfPlayers to Text.
+
+- MainMenu:
+      Added variables:
+        Default:
+            FindButton => UMG Button
+            HostButton => UMG Button
+            QuitButton => UMG Button
+            ToggleLanButton => UMGButton
+            GameInstanceReference => MyGameInstance 
+      Overrided event Contruct gets used GameInstance and sets GameInstanceReference to its reference.
+      Added Onclicked events for all buttons; FindButton shows ServerMenu, HostButton shows HostMenu, QuitButton quits 
+        the game and ToggleLanButton changes MyGameInstance variable EnableLan to true or false.
+
+Blueprint Classes:
+- MyGameInstance:
+      Added variables:
+        Server Settings:
+            EnableLan => Boolean (default = true)
+            ServerName => Text (not used for anything for now)
+            MaxPlayers => Integer (default = 2)
+        Widgets:
+            MainMenuWB => MainMenu blueprint widget
+            HostMenuWB => HostMenu blueprint widget
+            ServerMenuWB => ServerMenu blueprint widget
+            ServerRowWB => ServerRow blueprint widget
+            LoadingScreenWB => LoadingScreen blueprint widget
+            ErrorDialogWB => ErrorDialog blueprint widget
+      Added events to display each of the new blueprint widget classes.
+      Added macro DisplayErrorMessage which displays ErrorDialog widget and sets the error message.
+      Added HostMatchEvent event which creates a multiplayer session.
+      Added JoinServer which joins a created session.
+      Overrided NetworkError from GameInstance; handles network errors.
+      Overrided TravelError from GameInstance; handles travel errors.
+      Added NetErrorToText pure function to get network error code and create a text out of it.
+      Added TravelErrorToText pure function to get travel error code and create a text out of it.
+
+- MPMotionControllerPawn
+      Added variables:
+        Replication:
+            LeftControllerTrans => Transform (replicated with notify)
+            RightControllerTrans => Transform (replicated with notify)
+            PlayerBodyTrans => Transform (replicated with notify)
+      Modified variables:
+        Controllers:
+            LeftController: now replicates
+            RightController: Now is a BP_MPMotionController and replicates
+      Changed all references to BP_MotionController to BP_MPMotionController when dealing with the RightController.
+      Changed function SetInitialConditions; initial elements are no longer set in the function (casting is disabled to avoid problems)
+      Cahnged ServerStartMatch RPC; hands are silenced now by default.
+      Modified hands spawn process: 
+        *now uses SwitchOnDevices to decide if it is using the HMD or not
+        *hands now spawn on the server and the RPC can only be called if caller is locally controlled
+      Added ServerSpawnHand RPC (server only) which spawns the hands
+      Added function AttachHands, Category Network, which attaches hands to MotionControllerL or R if HMD is in use or the PlayerBody; called from ServerSpawnhand.
+      Added ServerGetLocationsAndRotations RPC (server only); sets the replicated transforms
+      Added function UpdateServer, Category Network, which passes the transforms of MotionControllerl and R and PlayerBody, when the pawn is locally 
+        controlled, to ServerGetLocationsAndRotations RPC.
+      Added functions OnRep for LeftControllerTrans, RightControllerTrans and PlayerBodyTrans; when the pawn is not locally controlled, set the new position and rotation.
+
+- BP_MPMotionController:
+      Now replicates.
+
+===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/07/05:
 
 General:
-- Added new map MultiplayerArena two oposing PlayerStart objects; nothing in the level blueprint runs now.
+- Added new map MultiplayerArena with two oposing PlayerStart objects; nothing in the level blueprint runs now.
 
 - GoogleVR and SimpleHMD are disabled by default; used when playing whithout the HMD (testing only).
 
@@ -11,7 +142,7 @@ General:
   MotionController_PlayerState (PlayerState child), Multiplayer_PanelText_BP (PanelText_BP child), 
   Multiplayer_MotionControllerPawn (Pawn child) e Multiplayer_BP_MotionController (Actor child).
 
-Blueprint classes
+Blueprint classes:
 - MultiplayerGM: 
      Added variables:
          Player Spawning:
