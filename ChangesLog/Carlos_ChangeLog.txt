@@ -1,3 +1,69 @@
+Changes made to branch 4.16 on 2017/07/10:
+
+General:
+- Added extra inputs for Action Mappings AttackLeft (left mouse button), AttackRight (right mouse button), DefenseLeft (left mouse button) and DefenseRight (right mouse button).
+
+- Added the CycleElements Action Mapping, bound to Tab key.
+
+- Added the LeftSelected (Q key) and RightSelected (E key) Action Mappings.
+
+Blueprint Classes:
+- BP_MPMotionController:
+      Changed functions ActivateSpell and DeactivateSpell, Category Spell, to no longer set bWantsToCast variable.
+
+- MotionControllerPawn:
+      Added macro IsInSilenceMode, Category Spell Casting, which checks if BP_MotionController variable CastStatus is not set to Silence.
+
+- BP_BasicAttack:
+      Added events ClientVisualFire, ClientVisualEarth, ClientVisualWind and ClientVisualWater; they are all multicast RPCs and replicate the charge visual effects for each element.
+      Added macro ChangeFireEffect, Category Default, to correct the negative scale issues of the left hand when on the client.
+      Added event ClientPlayExplosionAndSound which is a multicast RPC to replictate the sound and visual effects when the spell fails.
+
+- BP_MPMotionControllerPawn:
+      Added variables:
+        No VR Controls:
+            LeftSelected => Boolean (default = True)
+            RightSelected => Boolean (default = False)
+      Modified event ServerSpawnHand; no longer a server only RPC.
+      Added function NoVR_CorrectClientPosition, Category NoVR_Utils, which takes a float and rotates the client Pawn to face the server Pawn, when in the client.
+      Modified hands spawn process: 
+        *ServerSpawnHand no longer is called only by the local player; to maintain its server spawn status, only the authority is allowed to call it.
+      Modified the overrided event Tick to no longer update the replicated variables LeftControllerTrans, RightControllerTrans and PlayerBodyTrans.
+      Modified the overrided event BeginPlay; now sets a timer to loop every 0.05 seconds and replicate the variables LeftControllerTrans, RightControllerTrans and PlayerBodyTrans.
+      Modified the basic attack system:
+        *no longer has the tutorial Gate.
+        *initiating the attack and casting it are now done by server only RPCs that take BP_MPMotionController variables; this eliminates redunduncy due to having a left and right systems
+        *can now be used when no HMD is connected and only the correct hand can cast the attack
+        *now sets the BP_MPMotionController variable CastStatus to the correct ECastStatus value when None
+        *now uses a new macro to cast the spell which takes an ECastStatus variable and a BP_MPMotionController variable
+      Added event ServerInitiateAttack, a server only RPC which takes a BP_MPMotionController variable and an EElementSelected variable and charges the basic attack of the element passes to it.
+      Added event ServerCastAttack, a server only RPC which takes a BP_MPMotionController variable and casts the attack.
+      Added event ClientInitiateCast, a multicast RPC which takes a BP_MPMotionController variable and sets its bWantsToCast variable to True.
+      Added event ClientEndCast, a multicast RPC which takes a BP_MPMotionController variable and sets its bWantsToCast variable to False.
+      Modified macro ActivateAttack, Category Spell Casting; no it is called Activate spell, takes both an ECastStatus variable and a BP_MPMotionController 
+        variable and no longer sets the BP_MPMotionController CastStatus variable when the spell was successful.
+      Modified the basic defense system:
+        *no longer has the tutorial Gate
+        *casting the shield is done from a server only RPC which takes a BP_MPMotionController variable; this eliminates redunduncy due to having systems for both hands
+        *can now be used when no HMD is connected and only the correct hand can cast the attack
+        *now sets the BP_MPMotionController variable CastStatus to the correct ECastStatus value when None
+        *now uses a new macro to cast the spell which takes an ECastStatus variable and a BP_MPMotionController variable
+      Added event ServerCastShield, a server only RPC which takes a BP_MPMotionController variable and an EElementSelected variable and creates a shield of the correct element.
+      Modified event SwapShield; now it is a server only RPC taking a BP_MPMotionController variable and an EElementSelected variable.
+      Added event ClientVibration, a server only RPC, taking a BP_MPMotionController variable and seting the hands to shake after a delay of 0.3 seconds.
+      Modified hit system:
+        *shaking and visual update of the health bar is now done through multicast RPCs
+        *life is updated through an event
+        *when conditions for game over are met, a server only RPC is called to let the server now
+      Added event UpdateLife, which takes two Integer variable (the Life varibale the damage value from the hit).
+      Added event ClientVibrateCameraAndControllers which is a multicast RPC that activates force feedback on the affected Pawns.
+      Added event ClientUpdatePlayerState which is a multicast RPC that takes an Integer variable (the Life variable) and updates the health bar; it also checks if the game is over.
+      Added event ServerEndMatch, a server only RPC which sets IsGameOver to True when game over conditions are met.
+      Added Input events for Tab key for both the left hand and right hand; cycles through the elements on the selected hand when tab is pressed.
+      Added Input events for Q and E keys; when Q is pressed, LeftSelected variable is set to True and RightSelected is set to False; E is the oposite.
+      Modified Input event MouseY to avoid inverting vertical axis when on the client.
+
+===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/07/06:
 
 General:
