@@ -1,3 +1,15 @@
+Changes made to branch 4.16 on 2017/07/10:
+
+
+Blueprint classes: 
+
+- BP_BasicAttacks: 
+
+	Min net update Frequence set to 100. This also is necessary to replicate well the attacks trajectory, othewise it's choppy. 
+	Scale con the timeline now changes with a Multicast Custom Event, ClientSetScale. 
+	Cast Attack is now as in the previus multiplayer version. Gets Veocity direction and factor on the client and pass this information to the Server trought an event call FireBasicAttack. This makes the casting on the client much better.	
+
+========================================================================================================================
 Changes made to branch 4.16 on 2017/07/06:
 
 
