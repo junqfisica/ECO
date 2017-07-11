@@ -1,3 +1,44 @@
+Changes made to branch 4.16 on 2017/07/11:
+
+
+General:
+
+	New interface implemented: BPI_IsVRPlayer. This interface is now used by MPMotionControllerPawn and MotionControllerPawn. It has two functions GetVROring and GetVRCamera. This is been used now by the BP_HandTrackGesture.
+
+
+Maps: 
+
+	On the Level NonVRMainMenu the GameModeOverride is now: GameMode in World Settings. This avoid this level to spwan a VR Player as default.
+
+	Inclued a BlockingVolume on the floor in the Multiplayer map 
+
+	
+
+Blueprint classes:
+
+- MPMotionControllerPawn:
+
+	Added a node SwicthOnDevice in the Barrier input node on left and rigth.
+	Interface IsVRPlayer implemented
+
+- MotionControllerPawn:
+
+	Interface IsVRPlayer implemented
+
+- BP_HandTrackGesture:
+
+	Included a Cast node to BP_MPMotionController at the BeginPlay event. 
+	The Function GetUnitaryVectorFromHeadToHand is now Protected and Pure. It now uses the interface to cumpute the direction from HMD to Hand and no longer uses Cast to get the VROrigin.
+
+- BP_AdvancedAttacks:
+
+	OwnerHands array, is an actor type now, and works for both, singleplayer or multiplayer. 
+
+- LevelBlueprint MultiplayerLevel:
+
+	Inclued an experimental node for change the view for recording propouse. 
+
+========================================================================================================================
 Changes made to branch 4.16 on 2017/07/10:
 
 
