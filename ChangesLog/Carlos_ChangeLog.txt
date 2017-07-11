@@ -1,3 +1,22 @@
+Changes made to branch 4.16 on 2017/07/11:
+
+General:
+- Added extra inputs for Axis Mappings BarrierDefenseLeft (middle mouse button) and BarrierDefenseRight (middle mouse button).
+
+Blueprint Classes:
+- BP_Barrier:
+      Class now replicates.
+      StaticMeshComponent replicates; necessary to see barrier effects client side.
+
+- MPMotionControllerPawn:
+      Modified barrier casting systems:
+        *both systems now use server only RPCs to cast the barrier, using the axis value as input
+        *sound and rumble now both use multicast RPCs; rumble takes a BP_MPMotionController variable and sound takes aa Actor variable containing the reference to the current barrier being casted
+      Added events ServerCastBarrierLeft and ServerCastBarrierRight which are server only RPCs taking a Float variable; these are responsible for the casting.
+      Added event ClientRumbleControl which is a multicast RPC taking a BP_MPMotionController variable; this event is reponsible for replicating the rumble to the clients.
+      Added event ClientStopSound which is a multicast RPC taking an Actor variable; this event stops the grow sound from playing during the lifetime of the barrier.
+
+===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/07/10:
 
 General:
