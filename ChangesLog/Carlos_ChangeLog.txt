@@ -1,6 +1,39 @@
 Changes made to branch 4.16 on 2017/07/11:
 
 General:
+- Added extra inputs for Action Mappings RecognizeMotionL (shift key) and RecognizeMotionR (shift key).
+
+Blueprint Classes:
+- MPMotionControllerPawn:
+      Modified event CastAdvancedAttacks; now it is a server only RPC.
+
+- BP_MPMotionController:
+      Modified overrided event EventHit; added a SwitchHasAuthority node to make sure only the server can hit and cast the advanced attack.
+
+- BP_AdvancedAttacks:
+      Added variables:
+        Owner:
+           PlayerOwnerMP => MPMotionControllerPawn (used as original PlayerOwner)
+      Modified variables:
+        Target:
+            ProjectileTarget: now replicates
+        Owner:
+            OwnerHands: now replicates
+      Class now replicates and replaicates movement.
+      MinNetUpdateFrequency is now set to 100.0ms as BP_basicAttack, for the same reason.
+      Added event ClientPlayExplosion which is a multicast RPC; replicates explosion effect to clients.
+      Modified overrided event OnComponentHit; now calls ClientPlayExplosion.
+
+- BP_GEarth01:
+      Modified overrided event BeginPlay: 
+        *lerping from StartLocation vector to EndLocation now is only done in the authority, i.e. added a SwitchHasAuthority before it being done
+        *setting possible owner now has a multiplayer casting added after the MotionControllerPawn casting fails; sets the inherited (from BP_AdvancedAttacks) 
+         MPMotioncontrollerPawn to the owner of the object
+
+===================================================================================================================================================================
+Changes made to branch 4.16 on 2017/07/11:
+
+General:
 - Added extra inputs for Axis Mappings BarrierDefenseLeft (middle mouse button) and BarrierDefenseRight (middle mouse button).
 
 Blueprint Classes:
