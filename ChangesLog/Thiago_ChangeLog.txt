@@ -1,3 +1,45 @@
+Changes made to branch 4.16 on 2017/07/12:
+
+
+General:
+
+- FightArena level BP: Added a node on GameOver event to deactivate spells.
+
+
+Blueprint classes:
+
+- MPMotionControllerPawn:
+
+	ServerEndMatch is now a server only RPC.
+	Added a new function to deactivate the spells in both hands. 
+	Event to vibrate control is not a multicast RPC anymore and it's called on the input event for each controller. 
+	Macro added to check which device the player is using, and also check if controller is valid.
+
+- MotionControllerPawn:
+
+	Added a new function to deactivate the spells in both hands.  
+
+- BP_Barrier:
+
+	Added SwitchHasAuthority on BeginPlay. This avoid the client to run it again and turn the barrier back.
+		
+- BP_BasicAttacks:
+	
+	Parameter MaxAllowSpeed set as defaut value of 1500. For Balance.
+	Macro ChangeFireEffect deleted. No longer necessary. 
+
+- BP_Shield: 
+
+	The event SetOffSet is now running on server. This fix the air shield to be castted facing a wrong direction
+
+- BP_MPMotionController: 
+
+	Event Hit now uses isllocaly controller instead of SwitchHasAuthority
+
+- BP_AdvancedAttacks:
+
+	CastAdvancedAttack is now a server only RPC
+=========================================================================================================================
 Changes made to branch 4.16 on 2017/07/11:
 
 
