@@ -1,4 +1,29 @@
-Changes made to branch 4.16 on 2017/07/11:
+Changes made to branch 4.16 on 2017/07/13:
+
+Blueprint Classes:
+- MultiplayerGameState:
+      Modified overrided event Tick; no longer uses MatchState inherited variable and its switch to determine when the match has ended.
+
+- MPMotionControllerPawn:
+      Added event ServerStartMatch which is a server only RPC and sets IsGameOver to False.
+      Added function RestartPlayer, Category Player Status, which resets the pawn to its initial conditions (too many input parameters, see its signature in the graph).
+      Added event ClientRestartMatch which is a multicast RPC and calls function RestartPlayer.
+      Removed function SilencePlayer, Category Motion Controller.
+      Added SilenceOrUnsilencePlayer, Category Motion Controller, which takes an ECastStatus variable and sets the controllers to be able to cast or not.
+
+- MultiplayerGM:
+      Added variables:
+        Match Start:
+            MatchRestartMessage => Text (default value = "The fight will start in")
+      Added event RestartMatch which just restarts the pawn.
+      Modified event PostMatchEvent to set Text variable MatchRestartMessage to "New fight will start in".
+      Added overrided event Tick; checks if the match is over and sets MultiplayerGameState Boolean variable GameIsOver to False and calls the events to restart the match.
+      Modified function InProgressGameMessageCreator, Category Default, to take both an Integer variable and a Text variable; the Text variable is used to change the 
+       message after first match is over.
+      Modified function ReadyToEndMatch, Category Game, to no longer do anything when called.
+
+===================================================================================================================================================================
+Changes made to branch 4.16 on 2017/07/12:
 
 General:
 - Added extra inputs for Action Mappings RecognizeMotionL (shift key) and RecognizeMotionR (shift key).
@@ -20,7 +45,7 @@ Blueprint Classes:
         Owner:
             OwnerHands: now replicates
       Class now replicates and replaicates movement.
-      MinNetUpdateFrequency is now set to 100.0ms as BP_basicAttack, for the same reason.
+      MinNetUpdateFrequency is now set to 100.0ms as BP_BasicAttack, for the same reason.
       Added event ClientPlayExplosion which is a multicast RPC; replicates explosion effect to clients.
       Modified overrided event OnComponentHit; now calls ClientPlayExplosion.
 
