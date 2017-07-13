@@ -1,3 +1,35 @@
+Changes made to branch 4.16 on 2017/07/13:
+
+
+General:
+
+- MutiplayerMap: removed fog from the map 
+
+- MPMotionControllerPawn:
+
+	Included in the end of BeginPlay at "Set initial Conditions" comment box, a check if is locally controlled, if true change the deafault position of the health bar.
+	
+	
+- BP_MPMotionController:
+
+	Removed shake hand function from Activate Spell.
+	Inclued interface to take damage. Now hands take half of the total damage.
+
+- BP_Shield:
+
+	Shield deacrese size from 0.7 to 0.5 in x and y scale.
+
+- BP_BasicAttacks:
+
+	Increased size from 0.15 to 0.25
+	Base damage increase to 60
+
+- BP_AdvancedAttacks:
+
+	Increased size from 0.15 to 0.25
+	Base damage increase to 60
+
+=======================================================================================================================
 Changes made to branch 4.16 on 2017/07/12:
 
 
