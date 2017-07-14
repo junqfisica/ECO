@@ -1,3 +1,21 @@
+Changes made to branch 4.16 on 2017/07/14:
+
+- MPMotionControllerPawn:
+	
+	When active spell is no valid, when trying to release the attack, it deactivate and sets the cast status to none. Before, it wasn't setting status to none and barrier couldn't grow after the attack got destryed on your hand. 
+	Added an arrow that is child of Mask. If arrow is a child of the Camera it is not being replicate...wierd. 
+	The arrorw is used now to cast the AdvanceAttack on the macro CastGEarth01. Before I was using the camera, but for some dark reason it doesn't work when Rift is the Client.
+
+- MotionControllerPawn:
+	
+	When active spell is no valid, when trying to release the attack, it deactivate and sets the cast status to none. Before, it wasn't setting status to none and barrier couldn't grow after the attack got destryed on your hand. 
+
+
+- BP_BasicAttacks:
+
+	On the macro isPlayerHand when the two is valid fails the last returns false. This fix inssues on sinlge player when the AI shots.  
+
+=======================================================================================================================
 Changes made to branch 4.16 on 2017/07/13:
 
 
