@@ -1,3 +1,32 @@
+Changes made to branch 4.16 on 2017/07/14:
+
+Blueprint Classes:
+- BP_MPMotionController:
+      Added variables:
+        Hand:
+            ShouldActivateRumble => Boolean (default value = False; is used to turn on and off the loop vibration when casting shield)
+      Class now replicates with MinNetUpdateFrequency = 100.0 ms.
+      Modified function DeactivateAndDestroySpell, Category Spell, to take an ECastStatus variable.
+
+- BP_Shield:
+      Modified implemented interface event OnDamage; now when the life of the shield reaches 0, it stops the rumble.
+
+- BP_BasicAttack:
+      Modified overrided event OnComponentHit; now it tests if the object hit is the casting hand, if it is ignores the rest of the event.
+      Added macro IsPlayerHand which takes an Actor variable; this macro checks if input Actor is either the PlayerHand or its MP variant.
+
+- MPMotionControllerPawn:
+      Modified function DeactivatePlayerSpells, Category Motion Controller, to take an ECastStatus variable.
+      Modified event ClientEndMatch, a multicast RPC, to take an ECastStatus variable; when called from MultiplayerGM class, the new input is set to silence.
+      Modified event ServerEndMatch, a server only RPC; no longer has a Delay node before silencing the player.
+      Modified event ClientEndCast, a multicast RPC; now also disables controller rumble.
+      Modified macro ActivateSpell, Category Spell Casting; no longer calls multicast RPC ClientInitiateCast.
+      Modified event ServerInitiateCast, a server only RPC; now multicast RPC ClientInitiateCastis called right before macro ActivateSpell.
+      Modified event RumbleController to take a Boolean variable; this is used to toggle the rumble on or off.
+      Modified event ServerCastShield, a server only RPC; now it sets the BP_MPMotionController variable ShouldActivateRumble to True or False, depending on 
+       whether the shield is being casted or destroyed.
+
+===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/07/13:
 
 Blueprint Classes:
