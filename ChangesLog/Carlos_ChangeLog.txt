@@ -1,3 +1,36 @@
+Changes made to branch 4.16 on 2017/07/15:
+
+Blueprint Classes:
+- MotionControllerPawn:
+      Changed name of macro IsInSilenceMode to IsNotInSilenceMode to better reflect its use.
+
+- BP_WindShield:
+      Modified inherited variable RotationOffsetForLeftHand to X =0.0, Y = 0.0, Z = 0.0.
+      Modified inherited variable ShouldKeepWorldScaleInverted to True.
+
+- BP_MPMotionController:
+      Added variables:
+        Spell:
+            IsShield => Boolean (default value = False)
+      Modified variables:
+        Spell:
+            ActiveSpell: now replicates with notify
+        Default:
+            Player: now replicates (solves a refernce problem in macro IsRiftOn)
+      Modified function ActivateSpell, Category Spell; now no longer attaches the spell and modify its mesh properties.
+      Added function OnRep for ActiveSpell; this function attaches the spell to either attack or shield spawn points and sets its mesh properties for shield or attack.
+
+- MPMotioncontrollerPawn:
+      Added event ServerDeactivateAndDestroyActiveSpell, a server only RPC taking a BP_MPMotionController variable; destroys the Actor ActiveSpell and clears its reference.
+      Modified bound events RecognitionOnRightConclude and RecognitionOnLeftConclude; they now call ServerDeactivateAndDestroyActiveSpell.
+      Changed name of macro IsInSilenceMode to IsNotInSilenceMode to better reflect its use.
+      Changed name of event SwapShield to ServerSwapShield to maintain the naming patter with RPCs.
+      Modified event ServerInitiateAttack, a server only RPC, to set BP_MPMotionController variable IsShield to False.
+      Modified event ServerCastShield, a server only RPC, to set BP_MPMotionController variable IsShield to True.
+      Modified event ServerSwapShield, a server only RPC, to set BP_MPMotionController variable IsShield to True.
+      Modified event ServerCastAttack, a server only RPC, to check if the player is silenced before executing its intructions.
+
+===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/07/14:
 
 Blueprint Classes:
