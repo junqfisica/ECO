@@ -1,3 +1,35 @@
+Changes made to branch 4.16 on 2017/07/17:
+
+Note: Carlos changes on 2017/07/15 fixed inssues with the wind shield rotation and deactivation of spells when finishes the motion recognition for advanced attacks.  
+
+
+General:
+
+	Added a macro on the library called WhichPlayerIs, that checks if the actor enter parameter is a single player, mutiplayer or AI. This macro can be accessed by any BP.
+
+	Added BPI_SpellRules with 2 events and 1 function 
+
+- MotionControllerPawn: 
+
+	Basic Attacks check IsNotInSilenceMode on release button before execute node. Avoid player to get out from silence mode.
+	Inclued an IsNotInSilenceMode check before starts vibrating the controls on cast barriers.
+	Implemented the BPI_SpellRules 
+
+- MPMotionControllerPawn: 
+
+	Inclued an IsNotInSilenceMode check before starts vibrating the controls on cast barriers.
+
+
+- BP_BasicAttacks:
+
+	On GetAccelerationFromBaseSpeed the slope parameter was changed from 0.00095 to 0.00045. This makes the spell to curve more its trajectory for the new max speed.
+
+- BP_Barrier: 
+
+	Substitute the macro OwnerIsAPlayer by the macro on library WhichPlayerIs 
+	Added a check to see if player has more than two barriers casted. PS: Before implement the interface to all players it may lead to erros.
+
+=======================================================================================================================
 Changes made to branch 4.16 on 2017/07/14:
 
 - MPMotionControllerPawn:
