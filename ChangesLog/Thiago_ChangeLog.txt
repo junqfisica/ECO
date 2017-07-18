@@ -1,3 +1,29 @@
+Changes made to branch 4.16 on 2017/07/18:
+
+General:
+	
+	New advance attack GAir01. It can be activate moving both hands from top to down in a straight line.
+	New recorded file for advance air attack included.
+
+
+- MotionControllerPawn:
+	
+	Added the function CastBarrier that substitute the functions for each barrier. As soon as the Barriers are casted in the same way there is no need for diferent functions.
+	Added macro CastGAir01
+
+- MPMotionControllerPawn: 
+
+	Implemented the BPI_SpellRules.
+	Added the function CastBarrier that substitute the functions for each barrier. As soon as the Barriers are casted in the same way there is no need for diferent functions. 
+	Added macro CastGAir01.
+ 
+- AIEnemy_BP:
+
+	Implemented the BPI_SpellRules 
+	Removed barrier counts from the OnComponentBeginOverlap and OnComponentEndOverlap, now this is done by the interface BPI_SpellRules at the events AddBarrier and RemoveBarrier
+
+
+=======================================================================================================================
 Changes made to branch 4.16 on 2017/07/17:
 
 Note: Carlos changes on 2017/07/15 fixed inssues with the wind shield rotation and deactivation of spells when finishes the motion recognition for advanced attacks.  
