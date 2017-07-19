@@ -1,3 +1,23 @@
+Changes made to branch 4.16 on 2017/07/19:
+
+General:
+	
+	New advance attack GFire01. It can be activate dragging both hands backwards, close to each other in a straight line (Like a kamehameka). 
+	New advance attack GWater01. It can be activate with both hands from righ to left with the right hand and from left to right with the left hand.
+	Added a new blueprint called BP_WaterProjectile used by GWater01
+
+
+- MotionControllerPawn:
+	
+	Added macro CastGFire01
+	Added macro CastGWater01
+
+- BP_MotionController:
+
+	Added on Event Hit a new cast to GFire01
+
+
+=======================================================================================================================
 Changes made to branch 4.16 on 2017/07/18:
 
 General:
