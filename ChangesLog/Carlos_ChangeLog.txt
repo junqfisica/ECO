@@ -1,3 +1,54 @@
+Changes made to branch 4.16 on 2017/07/19:
+
+General:
+- Added blueprint widget class EndOfMatchMenu.
+
+Blueprint widgets:
+- EndOfMatchMenu:
+      Added variables:
+        Default:
+            RestartMatchButton => UMG Button
+            ReturnToMainMenuButton => UMG Button
+      Added OnClicked event for RestartMatchButton; sets MotionController_PC Boolean variable MatchRestart to True.
+      Added OnClicked event for ReturnToMainMenuButton; returns to Main Menu (when server does it, a network error happens for the client, but then the client goes to the main menu by itself).
+
+Blueprint Classes:
+- MotionController_PC:
+      Added variables:
+        Default:
+            MatchRestart => Boolean (default value = False; server only to pass its value to the PlayerState class)
+      Added event ClientHandleEndOfMatch, an owning client only RPC; places the EndOfMatchMenu for each player.
+
+- MotionController_PlayerState:
+      Added variables:
+        Default:
+            CanRestartMatch => Boolean (default value = False; when a player wants a rematch, this is set to True)
+      Added overrided event Tick; sets CanRestartMatch to the value of the MotionController_PC Boolean variable MatchRestart.
+
+- MultiplayerGameState:
+      Added variables:
+        Default:
+            RestartMatch => Boolean (default value = False; when set to True, restarts the match)
+            Temp => Boolean (default value =  False; auxiliary variable during a loop)
+      Modified overrided event Tick to also execute when the match state is set to WaitingPostMatch; if both players want to restart the match (see MotionController_PlayerState 
+       entry for more details), set RestartMatch to True.
+
+- MyGameInstance:
+      Added variables:
+        Widgets:
+            EndOfMatchMenuWB => EndOfMatchMenu blueprint widget
+      Added event ShowEndOfMatchMenu; takes a MotionController_PC variable, necessary to make sure each player has its own.
+      Modified macro DisplayErrorMessage, Category Default; now has exec type output.
+      Modified overrided event EventNetworkError; now calls event DestroySessionCaller and ShowMainMenu.
+      
+- MultiplayerGM:
+      Modified event PostMatchEvent; now calls MotionController_PC event ClientHandleEndOfMatch to show the menu when the match ends.
+      Modified overrided function ReadyToEndMatch; it is activated again.
+      Modified overrided event Tick; no longer is used, node has been disconnected.
+      Modified overrided event EventOnsetMatchState; now restart match when MultiplayerGameState variable RestartMatch is set to True.
+      Added event ResetMatch; sets a timer to check the MultiplayerGameState variable RestartMatch, when set to True, restart the match.
+
+===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/07/15:
 
 Blueprint Classes:
