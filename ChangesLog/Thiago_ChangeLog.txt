@@ -1,3 +1,28 @@
+Changes made to branch 4.16 on 2017/07/20:
+
+General:
+
+	Added two new particle system for the advance attacks
+
+- MPMotionControllerPawn:
+
+	Added macro CastGFire01
+	Added macro CastGWater01
+
+- BP_MPMotionController:
+
+	Added on Event Hit a new cast to GFire01
+
+- BP_HandTrackGesture:
+
+	Using the VR camera location insted of VROriring on the macro GetUnitVectorFromHeadToHand
+
+- BP_MotionControllerTutorial:
+
+	Added an Event linked to a Set Timer to verify when an advanced attack is activate.
+ 
+
+=======================================================================================================================
 Changes made to branch 4.16 on 2017/07/19:
 
 General:
