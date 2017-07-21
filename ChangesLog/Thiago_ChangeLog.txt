@@ -1,3 +1,37 @@
+Changes made to branch 4.16 on 2017/07/21:
+
+
+- BP_GFire01:
+	
+	P_Projectile scale changed from 36 to 50
+	Added a grow phase.
+	VolumeDetector is now child of the Root.
+
+- BP_MotionController:
+
+	Removed on Event Hit a new cast to GFire01. Release is now deal by the MotionControllerPawn.
+	Added a function called "ReleaseAdvancedAttack". This function checks if there is an advanced attack active, if so cast it.
+	Add a varaible ActiveAdvanceAttack => type AdvandeAttack.
+
+- MotionControllerPawn:
+
+	Added a new event TryToReleaseAdvanceAttack. This event is called after releasing the input button for finish recognition on the right hand.	
+	CastGFire01 macro now attatch the fire attack to the right hand.
+	
+- BP_MPMotionController:
+
+	Removed on Event Hit a new cast to GFire01. Release is now deal by the MotionControllerPawn.
+	Added a function called "ReleaseAdvancedAttack". This function checks if there is an advanced attack active, if so cast it.
+	Add a varaible ActiveAdvanceAttack => type AdvandeAttack and set as RepNotify.
+	OnRep_ActiveAdvanceAttack. Attach the spell to the hand at the attack spawn point
+
+
+- MPMotionControllerPawn:
+
+	Added a new event TryToReleaseAdvanceAttack a server only RPC. This event is called after releasing the input button for finish recognition on the right hand.	
+	CastGFire01 macro sets ActiveAdvanceAttack. The attatch is make by the RepNotify.
+
+=======================================================================================================================
 Changes made to branch 4.16 on 2017/07/20:
 
 General:
