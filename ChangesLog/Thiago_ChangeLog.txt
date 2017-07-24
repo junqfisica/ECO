@@ -1,3 +1,20 @@
+Changes made to branch 4.16 on 2017/07/24:
+
+- General:
+
+	Added a BP GestureTutorialHelper
+
+- Maps:
+
+	TutorialMap: in its BP level the stage5 now loops over all the four advanced attacks.
+
+
+- MotionControllerPawnTutorial:
+
+	Added functionality to help on the Advanced attacks tutorial.
+
+
+===================================================================================================================
 Changes made to branch 4.16 on 2017/07/21:
 
 
