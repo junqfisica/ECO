@@ -1,3 +1,26 @@
+Changes made to branch 4.16 on 2017/07/26:
+
+- General:
+
+	Added a BP MenuNetworking.
+	Duplicated the widgets for networking use in Vr.
+
+
+===================================================================================================================
+Changes made to branch 4.16 on 2017/07/25:
+
+
+- BP_MotionController:
+
+	On event SetShakeHands added a new function PlayRiftVibration with a Callback event to loop vibration.
+	added new parameter: RiftVibrationTimeHanlder -> type TimeHandler. This is used in PlayRiftVibration. 
+
+- MotionControllerPawnTutorial:
+	
+	Added a helper gesture for all advanced attacks in tutorial tutorial.
+
+
+===================================================================================================================
 Changes made to branch 4.16 on 2017/07/24:
 
 - General:
