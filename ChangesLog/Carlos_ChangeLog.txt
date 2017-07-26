@@ -1,3 +1,24 @@
+Changes made to branch 4.16 on 2017/07/25:
+
+Blueprint widgets:
+- MainMenu:
+      Modified variables:
+        Default:
+            HostButton: now it is disabled by default
+
+- ServerMenu:
+      Modified variables:
+        Default:
+            RefreshButton: text changed from Refresh to Find Match
+            RefreshButtonEnabled: default favlue changed from False to True
+      Modified the system used for hosting joining matches:
+        *player no longer can host a match directly, only when no other matches have been found
+        *now when searching for sessions if one is not found, create and go to the map
+      Modified overrided event EventConstruct; now no longer calls macro RefreshServers.
+      Modified macro RefreshServers, Category Default; now calls HostMatch event from MyGameInstance if no sessions are found and sorts session results by ping (not tested).
+      Added function SortByPing, Category Default, to sort a BlueprintSessionResult array.
+
+===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/07/19:
 
 General:
