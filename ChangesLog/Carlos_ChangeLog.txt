@@ -1,3 +1,59 @@
+Changes made to branch 4.16 on 2017/08/02:
+
+General:
+- Added blueprint widget classes ServerRowVR and MP_Button.
+
+- Added blueprint class BP_MP_Button.
+
+Maps:
+- MenuRoom:
+      Changes to map:
+          Removed BP_InfoPanel.
+          BP_MenuNetworking is no longer visible by default in gameplay.
+      Added variables:
+        Default:
+            Multiplayer => BP_MP_Button (holds the multiplayer button so that not many modifications need to be done to the WBP_GameOver).
+      Added a spawn function for BP_MP_Button in event BeginPlay.
+
+Blueprint classes:
+- BP_MPMotionController:
+      Added variables:
+          RiftVibrationTimeHandler => TimerHandle
+      Added function PlayRiftVibration, Category Controller. See Thiago_ChangeLog, entry "Changes made to branch 4.16 on 2017/07/25" for details on what it does.
+      Modified event SetShakeHands; see Thiago_ChangeLog, entry "Changes made to branch 4.16 on 2017/07/25" for details on what it does.
+
+- MPMotioncontrollerPawn:
+      Added function EnableWidgetInteraction, Category Interaction, to enable the WidgetInteraction component of a BP_MPMotioncontroller.
+
+- MotionController_PC:
+      Modified event ClientHandleEndOfMatch, owning client only RPC, to spawn a BP_GameOverUI object when the match has ended, enable interaction with it and set 
+       the new map to load to NoVR_MainMenu (this is for testing; the map should be MenuRoom).
+
+- MyGameInstance:
+      Added variables:
+        Default:
+            IsVR_NotActive => Boolean (default value = False, if VR is not active we can set it to true to use k/b combination)
+      Modified variables:
+        Widgets:
+            All widgets now are of the type that has VR in the name.
+      Modified all Show<name of the menu>Menu events to take a Boolean that if true will assume that VR is not active and add the widget to the viewport.
+
+- BP_MenuNetworking:
+      Modified all Show<name of the menu>Menu events; now no longer spawns the widget.
+
+- BP_MP_Button:
+      Added variables:
+        Default:
+            MP_Buttom => MP_Button
+            EnableButton => Boolean (default value = True)
+      Overrided event BeginPlay; identical to BP_MenuNetworking BeginPlay event.
+      Overrided EventTick; enables or disables the button.
+
+
+Blueprint widgets:
+- Modified all VR widgets to work with the multiplayer button and also work on the NoVR_Main_Menu.
+
+===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/07/25:
 
 Blueprint widgets:
