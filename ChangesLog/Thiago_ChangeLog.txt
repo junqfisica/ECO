@@ -1,3 +1,35 @@
+Changes made to branch 4.16 on 2017/08/22:
+
+- General:
+
+	Starting map on game is now SwitchLevels.
+	Toggled starts in VR at project settings. 
+
+- BP_MenuNetworking:
+
+	Added Enable Buttons as true on the Event ShowMainMenu.
+
+
+- MainNetworkingVRMenu:
+
+	At EventConstruct set the LanText depending on the value on EnableLan from GameInstance.
+	Added an event UnhoverAll to set the color of buttons back to its default colour when button is clicked.
+
+- HostMenuVR:
+
+	Added an event UnhoverAll to set the color of buttons back to its default colour when button is clicked.
+
+- ServerMenuVR:
+
+	Added an event UnhoverAll to set the color of buttons back to its default colour when button is clicked.
+
+- MPMotionControllerPawn:
+
+	Added a PressLeftMouseKey at the event ServerInitiateAttack, when is in silence mode. This mimic the press mouse button in VR.
+	Added a ReleaseLeftMouseKey at the event ServerCastAttack, when is in silence mode. This mimic the release mouse button in VR.
+===================================================================================================================
+
+
 Changes made to branch 4.16 on 2017/07/26:
 
 - General:
