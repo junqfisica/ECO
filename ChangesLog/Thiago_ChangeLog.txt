@@ -1,4 +1,32 @@
-Changes made to branch 4.16 on 2017/08/22:
+Changes made to branch 4.16 on 2017/08/03:
+
+- General:
+
+
+- MyGameInstance:
+
+	The event ShowLoadingScreen now checks if IsVR_NotActive is true or false. If true, the widget loadingScreen will be attached to the viewport. 
+	Added at the macro DisplayErrorMessage an node to check if the loading widget is on if true remove it.
+	Added at the macro DisplayErrorMessage and branch to check if IsVR_NotActive is true or false. If true added the widget to the viewport. 
+
+
+- BP_MenuNetworking:
+
+	Added two new events; ShowLoadingScreen and ShowErrorDiag.
+
+- HostMenuVR:
+
+	On click AcceptButton was added a branch to check if IsVR_NotActive is true or false. If true, removes this widget from viewport, otherwise call the event ShowLoadingScreen from the BP_MenuNetworking.
+
+- ErrorDiag:
+
+	On clik OkButton was added a branch to check if IsVR_NotActive is true or false. If true, removes this widget from viewport, otherwise call the event ShowMainMenu from the BP_MenuNetworking.
+
+	
+
+
+===================================================================================================================
+Changes made to branch 4.16 on 2017/08/02:
 
 - General:
 
