@@ -1,3 +1,18 @@
+Changes made to branch 4.16 on 2017/08/04:
+
+- MultiplayerGameState:
+
+	Include some prints for debug. Problem still persist. Also read the comment box for bug description.
+
+- MultiplayerGM
+
+	Include a delay fr test on before restart the match
+
+
+- ServerRowVR:
+
+	Changed the structure of the widget. Now it fits well on the ServerMenuVR windown.
+===================================================================================================================
 Changes made to branch 4.16 on 2017/08/03:
 
 - General:
