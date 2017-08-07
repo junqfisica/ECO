@@ -1,3 +1,39 @@
+Changes made to branch 4.16 on 2017/08/07:
+
+General:
+- Changes to the way the MultiplayerGM is notified of the state of the player in regards to restarting the match; now the setting is done in the MotionController_PC blueprint class.
+- All reset done is not fully working, due to the fact that the match State Machine in the parent class GameMode is not resetted when Seamless Travel is enabled.
+- Added map TransitionMap, which is necessary to use Seamless Travel.
+
+Blueprint classes:
+- MotionController_PlayerState:
+      Modified variables:
+        Default:
+            CanRestartMatch: no longer replicates
+      Added event ClientResetPlayerState, which sets both Boolean variables CanRestartMatch and PlayerIsDefeated to False.
+
+- MultiplayerGameState:
+      Returned WaitingPostMatch switch state to its original (read mine) form; Thiago's node has the possibility of setting Boolean variable RestartMatch to 
+       True even if not all players had agreed to it; this would occur for both the server and client.
+      Modified overrided Tick event; now sets its Boolean variables to False and calls ClientResetPlayerState from MotionController_PlayerState.
+
+- MotionController_PC:
+      Added variables:
+        Default:
+            IsReadyToRestart => Boolean (default value = False)
+      Added event ServerNotifyIsReadyToRestart, a server only RPC, which sets the value of the Boolean variable IsReadyToRestart.
+      Added overrided Tick event; when MatchRestart is set to True (done in WBP_GameOver) calls ServerNotifyIsReadyToRestart to set IsReadyToRestart to True.
+      Added event ClientResetPC, a multicast RPC, to reset an instance of this class to its default state.
+
+- MultiplayerGM:
+      Removed variables: 
+        Match Start:
+            MatchRestartMessage: where it is set in code now sets WaitingToStartMessage
+      Added event ResetGM; resets MultiplayerGM and calls MotionController_PC multicast RPC ClientResetPC.
+      Modified overrided event OnSetMatchState; now sets Text variable WaitingToStartMessage before calling event InProgressEvent when in InProgress 
+       switch state; added call to ResetGM in switch state LeavingMap.
+
+===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/08/02:
 
 General:
