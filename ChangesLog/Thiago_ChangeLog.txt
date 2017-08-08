@@ -1,10 +1,41 @@
+Changes made to branch 4.16 on 2017/08/08:
+
+
+	Note: Havy change on the way the basic attacks are castted. The modification on BP_BasicAttacks have an impact on the multiplayer since CastBaseAttack was modified a bit. Working in progress. 
+
+- MyFuncions: 
+
+	Added a new function that gets the angle between two vectors.
+
+BP_MotionController:
+
+	Change the position of AttackSpawnPoint from (12,0,-17) to (12,0,0).
+	The DeactivateSpell funcion now sets CastStatus to none. 
+	The DeactivateAndDestroySpell funcion now sets wants to cast to false. Used for animation states.
+
+- MotionControllerPawn:
+	
+	On Macro GFire01 the Location was changed from (0,5,0) to (0,-12,0). This take into acount the change of AttackSpawnPoint.
+	Added two new events, IniciateAttack and Cast Attack. This events hold the start and end for casting the basic attacks and work in the same way as in the MPMotionControllerPawn.
+	Added two new events that are bind by a SettimerByEvent. ReleaseLeftPunch and ReleaseRightPunch. This events check if you are punch to release the basic attacks. Basic Attacks are no longer released by releasing the trigger button.
+	Two new int var created, AttacksReleaseRight and AttacksReleaseLeft. This integers count how many times the player release attack, if it execides a given value the player cannot shot anymore and He/She must release the trigger button to start over.
+	
+
+BP_BasicAttacks:
+
+	Event CastBaseAttack nows recive a vector parameter call velocity. Now the player pawn pass this information to the basic attack. This fixe inssues with velocity on the new way basicattacks are casted. 
+	Added and new event ClinetPlayFailEmitter wich is a multicast RPC. This plays the sound and effects for failing in cast.
+
+
+
+===================================================================================================================
 Changes made to branch 4.16 on 2017/08/04:
 
 - MultiplayerGameState:
 
 	Include some prints for debug. Problem still persist. Also read the comment box for bug description.
 
-- MultiplayerGM
+- MultiplayerGM:
 
 	Include a delay fr test on before restart the match
 
