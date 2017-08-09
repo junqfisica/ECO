@@ -1,3 +1,16 @@
+Changes made to branch 4.16 on 2017/08/09:
+
+Blueprint classes:
+- MotionControllerPawn:
+      Modified the way both hands cast the basic attack; now checks if in silence mode before the combat mechanics algorithim in both press and release button. 
+       Comments in the event should explain what was done.
+
+- Multiplayer_GM: (note: this is for me to keep track of the changes)
+      Modified event OnPostLogin; now no longer spawns the player pawns.
+      Modified event HandleStartingNewPlayer; now does the spawning and calls the ClientPostLogin owning client only RPC from MotionController_PC.
+      Modified event ResetGM; no longer resets the arrays for the playerstarts and the PC list.
+
+===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/08/07:
 
 General:
