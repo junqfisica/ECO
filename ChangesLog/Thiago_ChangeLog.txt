@@ -1,3 +1,26 @@
+Changes made to branch 4.16 on 2017/08/09:
+
+	Note: Structural changes made on the node to cast basic attacks. Read carefully below.
+
+- MotionControllerPawn:
+
+	Added an input event called OnControllerClick. This is now used to simulate the click with mouse. 
+It can be activate with triger or grip button on VR or with the left click of the mouse.
+	The events IniciateAttack and CastAttack are obsolet here now. This two events were moved to the BP_MotionController.
+	
+- BP_MotionController:
+
+	Added the events IniciateAttack and CastAttack which came from the MotionControllerPaw.
+	At the end of IniciateAttack a timer is triger to keep checking hand velocity and direction to cast the attacks. 
+See node for more detail.
+	Now the functions DeactivateSpell and DeacticvateAndDestroySpell check if CastStatus is equal to silence mode 
+before set CastStatus to none. This fix for once the problem of activate attack when in silence mode and reduce the number of 
+calls needed to check if player is in silence mode considerly.
+	DeacticvateAndDestroySpell now also cleans the timer handler call ActivateAttackTimeHandler. This function now is 
+responsable to stop the timer handler that trigger the event ReleaseOnPunch.  
+	
+
+===================================================================================================================
 Changes made to branch 4.16 on 2017/08/08:
 
 
