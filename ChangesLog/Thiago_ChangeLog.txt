@@ -1,3 +1,28 @@
+Changes made to branch 4.16 on 2017/08/10:
+
+- BP_Barrier:
+
+	Added a new event StartDestroying. This event runs a TimeLine to brings the barrier down and destroy it. Before the barrier was 
+destroy after x secs. Now this will animate the barrier down before destroy it. The implementation is still in progress. 
+
+- BP_MotionController:
+
+	Added new event CastShield. This event is similar of of we have on MPMotionControllerPawn, althought now it was moved to the hand (BP_MotionController).
+	CastShield has one modification. Now, if CastStatus is on Attack it destroy and deactivate the attack and cast shield. Before it wouldn't do anything at attack mode. This fits better to the new mechanics of the attacks. 
+
+- MotionControllerPawn:
+
+	Now in the function CastBarrier the nodes Switch onCastStatus, the attack destroy and deactivate the attack and cast barrier. Before it wouldn't do anything at attack mode. This fits better to the new mechanics of the attacks.   
+
+- BP_BasicAttacks:
+
+	Event CastBaseAttack don't recive velocity input anymore. It's now how it was before.
+	The function GetVelocityDirectionAndFactorfromPlayer returns one more float parameter, speed. Thi is for debuging use.
+	Within the function GetVelocityDirectionAndFactorfromPlayer the conversition between player speed and factor was changed 
+to another function. It nows interpolate between 3 values rather than use a logarithimic function to do it. This can simplifiy the process to balance the convertion between player speed and spell speed.
+
+
+===================================================================================================================
 Changes made to branch 4.16 on 2017/08/09:
 
 	Note: Structural changes made on the node to cast basic attacks. Read carefully below.
