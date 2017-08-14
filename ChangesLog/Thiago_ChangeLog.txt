@@ -1,3 +1,25 @@
+Changes made to branch 4.16 on 2017/08/14:
+
+- General:
+
+	Update the materias for the Barrier and the landscape. This fix the insue with the floor seems bumped.
+	Minor changes on the light at the Maps FightArena and MultiplayeArena.
+	Changed the landscape z location from 100 to 110, on both FightArena and MultiplayeArena. This compensate the 
+material change and bring the floor to the right level. Correction on barrier vizual effects were made to addapt 
+to it as well.
+
+- BP_MotionController:
+
+	DeactivateAndDeastroySpell now deactivate the rumble on the controllers before the cast nodes. Fix insue when the ActiveSpell 
+was not valid the vibration wans't being turned off.
+	Implement interface TakeDamage as implemented on multiplayer.
+
+- BP_BasicAttacks:
+
+	Override the Event Destroyed. If BP_MotionController or BP_MPMotionController are attached parents when it's destroyed 
+it deactivate the attack on the hand.
+
+===================================================================================================================
 Changes made to branch 4.16 on 2017/08/10:
 
 - BP_Barrier:
