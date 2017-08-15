@@ -1,3 +1,46 @@
+Changes made to branch 4.16 on 2017/08/15:
+
+- General:
+
+	New sounds effects added on the project.
+
+- Multiplayer tested:
+ 
+	Restart match now works and the new mechanic for casting the attacks work fine as well.
+	Inssues - Vibration still need to be fixed and the attack GEarth01 sometimes get stuck when hit by hand, even 
+on the new way of releasing it. Possible problem is related with the hit normal impulse component. 
+
+
+- MPMotionControllerPawn:
+
+	On Macro GFire01 the Location was changed from (0,5,0) to (0,-12,0). This take into acount the change of AttackSpawnPoint.
+	Removed the events ServerIniciateAttack, ServerCastAttack and ServerCastShield. They are now on BP_MPMotionController.
+
+- BP_MotionController:
+
+	Envent Hit was deactivate. This is now deal at BP_GEarth01.
+	Changed HandMesh scale from (1,1,1) to (0.8,0.9,0.9).
+	Changed HandMesh material from master_hand_004 to M_skyxmat (universe hand).
+
+- BP_MPMotionController:
+
+	Envent Hit was deactivate. This is now deal at BP_GEarth01.
+	Changed HandMesh scale from (1,1,1) to (0.8,0.9,0.9).
+	Changed HandMesh material from master_hand_004 to M_skyxmat (universe hand).
+	Added the events ServerIniciateAttack, ServerCastAttack and ServerCastShield which came from MPMotionControllerPaw.
+	At the end of ServerIniciateAttack a timer is triger to keep checking hand velocity and direction to cast the attacks.See node for more detail.
+	Now the functions DeactivateSpell and DeacticvateAndDestroySpell check if CastStatus is equal to silence mode 
+before set CastStatus to none. This fix for once the problem of activate attack when in silence mode and reduce the number of 
+calls needed to check if player is in silence mode considerly.
+	DeacticvateAndDestroySpell now also cleans the timer handler call ActivateAttackTimeHandler. This function now is 
+responsable to stop the timer handler that trigger the event ReleaseOnPunch.  
+
+- BP_GEarth01:
+
+	Envent OnHitComponent now deals with shooting earth when hitted by hand. 
+
+
+===================================================================================================================
 Changes made to branch 4.16 on 2017/08/14:
 
 - General:
