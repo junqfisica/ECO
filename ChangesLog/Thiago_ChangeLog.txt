@@ -1,3 +1,38 @@
+Changes made to branch 4.16 on 2017/08/16:
+
+- General:
+
+	New sounds effects added on the project.
+	Some minor balance with barrier life and timelife.
+
+- MyGameInstance:
+
+	At ShowLoadingScreen, now if IsVrNoActive is false it tries to get BP_MenuNetworking to set the loading screen for vr. This 
+was done to call the loading screen when the player try to join a section. (Need to test.) 
+
+- HostMenuVR:
+
+	On this widget at OnClicked AcceptButton the node that calls the loading screen for vr was removed, sine it now is done by 
+the game instance. (Need to test.)
+	
+- BP_Barrier:
+
+	Added an Event ClientPlayExplosion. This is call when barrier has life lower than 0. 
+
+- BP_MotionController:
+
+	At InitiateAttack when cast status is Attack do nothing. Avoid restart attack when triger is pressed.
+
+- BP_MPMotionController:
+
+	At ClientInitiateAttack when cast status is Attack do nothing. Avoid restart attack when triger is pressed.
+
+- BP_GEarth01:
+
+	OnComponentHit, now it uses the hand velocity to shoot the rock instead of normal impulse. So far it shows 
+better performance on multiplayer.
+
+===================================================================================================================
 Changes made to branch 4.16 on 2017/08/15:
 
 - General:
