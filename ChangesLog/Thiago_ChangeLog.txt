@@ -1,3 +1,60 @@
+Changes made to branch 4.16 on 2017/08/18:
+
+Note: In this version all the basic attacks will play a fire sound. This is not a bug. David is building the Cue sounds 
+for the other elements. 
+
+
+- General:
+
+	Create a new attenuation file for the sounds called GeneralAttenuation. This is used by some Cue sounds. 
+
+- BP_BasicAttacks:
+
+	Client events for cast explositon and fail were substitute for a single multicast event ClientPlayEmitterAndSound. This event takes as 
+input a particle system and a sound reference. This is more generic.
+	Added a new event ClientPlayAudio. This is a multicast RPC to play an audio. It takes an audio component as input.
+	Added a new event ClientPlayAudioWithTransition. This is a multicast RPC to play a new audio and fade out another one. It takes two audio component as input, the fade out audio and the new audio, and the time to fade out the audio.
+	At the event FireBasicAttack there is a ClientPlayAudio if player don't fail to cast it. This play a punch audio.
+	Added new audio components.
+
+- All Child from BP_BasicAttacks:
+
+	The events ChangeVisual now calls the audios in different stages.	
+
+- BP_Shield:
+
+	Added a new event ClientPlayAudio. This is a multicast RPC to play an audio. It takes an audio component as input.
+	Added a new event ClientPlayAudioWithFadeIn. This is a multicast RPC to play a new audio and fade in time.
+	Added new audio component.
+	The Cue_MainLoop starts at the BeginPlay with a fade in of a second.
+
+- MotionControllerPawn:
+
+	Now, advanced attacks are not trigger if player is in silence mode.
+	TryToReleaseAdvanceAttack has no function anymore. Now this is done by the hand as the basicAttacks.
+	CastGFire01, now after spawn and attack to hand it calls the event StartReleasingAA.
+
+- MPMotionControllerPawn:  
+
+	Now, advanced attacks are not trigger if player is in silence mode.
+
+- BP_MotionController:
+
+	Added an new event called StartReleasingAA. This event checks for hand velocity and shoots the attack when the critereas are 
+complet.
+
+- BP_GFire:
+
+	On Destroy event it checks if the spell is still a parent from hand, if true it stops the timer on the StartReleasingAA.
+
+- BP_AdvancedAttacks:
+
+	The event CastAdvancedAttack was syncronized with the event FireBasicAttack. It gives better performance on acelleration 
+of the projectile.
+
+	
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/08/16:
 
 - General:
@@ -32,7 +89,7 @@ the game instance. (Need to test.)
 	OnComponentHit, now it uses the hand velocity to shoot the rock instead of normal impulse. So far it shows 
 better performance on multiplayer.
 
-===================================================================================================================
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/08/15:
 
 - General:
