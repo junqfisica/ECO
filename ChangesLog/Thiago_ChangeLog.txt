@@ -1,3 +1,45 @@
+Changes made to branch 4.16 on 2017/08/23:
+
+- General:
+
+	Added new interface BPI_HasPenetration. It has one function call GetPenetration, this function returns a float between 0 and 1. 
+	Sounds for all basic attacks and shield were added in the project.
+	Added new widget WBP_MenuRoom.
+	Started the new MenuRoom implementation at MenuRoom Map. This is still not fully integrate.
+
+- BP_BasicAttacks:
+
+	Implement the interface BPI_HasPenetration. 
+
+- BP_AdvancedAttacks:
+
+	Implement the interface BPI_HasPenetration.
+
+- BP_Shield:
+
+	Added a new parameter call ElementalClass. It can be None,Fire,Water,Earth, or Wind, it has a use for get penetration.
+	OnDamage now checks for penetration and pass part of the damage to the player.
+
+- BPI_TakeDamage:
+
+	OnDamage now has a new parameter call Instigator. This is the actor that is given the damage.
+
+
+- MPMotionControllerPawn: 
+
+	Now, advanced attacks are not trigger if player is in silence mode.
+	TryToReleaseAdvanceAttack has no function anymore. Now this is done by the hand as the basicAttacks.
+	CastGFire01, now after spawn and attack to hand it calls the event StartReleasingAA.
+	ClientUpdatePlayerState now recive ServeDamage and checks if damage is not equal to zero before draw blood at camera.
+	
+
+- MotionControllerPawn: 
+
+	OnDamage now checks if damage is not equal to zero before draw blood at camera.
+
+
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/08/18:
 
 Note: In this version all the basic attacks will play a fire sound. This is not a bug. David is building the Cue sounds 
