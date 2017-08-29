@@ -1,3 +1,24 @@
+Changes made to branch 4.16 on 2017/08/29:
+
+- General:
+
+	This versrion manly modified stuff related to the tutorial and menu.
+	Added new menu widgets.
+	New MenuRoom at MenuRoom Map implemented.
+
+- MotionControllerPawn:
+
+	Added an arrow "PlayerOriginArrow" to get direction from DefaultSceneRoot. This arrow should aways face the opponent and don't change direction with the HeadSet.
+
+- MotionControllerPawnTutorial:
+
+	Now, all the logic to spawn and set the helper for AdvancedAttack is within the macro ActivateGestureHelper.
+
+- BP_GesttureTutorialHelper:
+
+	Added an event, PlayGesture, that makes the controllers follow along the spline.
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/08/23:
 
 - General:
