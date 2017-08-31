@@ -1,3 +1,24 @@
+Changes made to branch 4.16 on 2017/08/31:
+
+
+- General:
+	
+	Added a data structure that is feed by external files. The main elementes of the game use those data to set its 
+	inicial parameters that are related to balancing. Right now there are three tables in use: InitialPlayerData conected to the 
+	MotionControlPawn, MPMotionControlPawn and child. AdvancedAttackData conected with BP_AdvancedAttacks and child and by the last 
+	BasicSpellsData conected to BP_BasicAttack, BP_Shield, BP_Barrier and child.
+
+-Important note:
+
+	The parameters connect to the tables cited above can't be change anymore on the editor, once there will be no effect. If, you want to 
+	change a given value, i.e BaseLife, you need to change it in the table for the respective object you want to do so.
+
+- MPMotionControllerPawn:
+
+	QiRegeneration don't start on beging play anymore. An event ServerStartQiRegeneration was created and it's call at ClientStatMatch. This 
+	solve the problem of the player start Qi regeneration before the other player enter at the arena.
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/08/29:
 
 - General:
