@@ -1,3 +1,11 @@
+Changes made to branch 4.16 on 2017/09/05:
+
+ - General:
+
+	Many changes on balancing and UX.
+	Positions and sizes of some widgets were modifed. 
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/08/31:
 
 
