@@ -1,1 +1,16 @@
-test
+================================================================================================================================================
+Changes made to branch 4.16 on 2017/09/08:
+
+
+- General:
+	
+	-I added/migrated all my art assets to a temp folder called "waterbarrierTEMP"  learned how the barrier workes and made my art work with it!
+        -created a folder for support Blueprints ( visual effect that require a blueprint) location [Spell>Blueprints>"SupportBlueprints"]
+        -moved assets from TEMP folder dicussed about to folders tthey should be.
+
+-Important note:
+
+	I modifyed the scale of the child BP of the barrier so the wave was the apprompiate size. seems to work.
+
+
+================================================================================================================================================
