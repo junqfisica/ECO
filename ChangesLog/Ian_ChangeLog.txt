@@ -1,4 +1,22 @@
 ================================================================================================================================================
+Changes made to branch 4.16 on 2017/09/08: (later that day)
+
+
+- General:
+	
+	-Added my assets and meshed them with original blueprints(BP_waterball), i have some questions and there might be some bugs but its works pretty good for a first pass
+        -addd BP_waterrisingfromground, theseare homing projectiles that obsorb into the BP_waterball. I have some questions about what event is in the right hand that not in the left. I want the water from ground to trigger
+         when the trigger is first pulled and  "charging" events the charging event is right when the spell is spawned in hand. kinda confusing :)
+        -moved more assets from temp folder to proper locations .
+	-reduced textues sizes helped with preformace alot!
+
+-Important note:
+
+	I modifyed the BP_waterball heavily and have alot of questions and prob need to be reviewd by you guys :) its only my first day after all :)
+
+
+================================================================================================================================================
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/08:
 
 
