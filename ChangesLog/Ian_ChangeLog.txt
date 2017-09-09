@@ -1,4 +1,20 @@
 ================================================================================================================================================
+Changes made to branch 4.16 on 2017/09/09: 
+
+
+- General:
+	
+	-added art assest for earth barrier
+        -modifyed the child BP and made all my logic work (Earth Barrier)
+        -Rigged and tuned PHYX asset
+	-reduced textues sizes
+-Important note:
+
+	changed Earth barrier art 
+
+
+================================================================================================================================================
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/08: (later that day)
 
 
