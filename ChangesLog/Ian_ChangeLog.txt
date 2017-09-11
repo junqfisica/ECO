@@ -1,5 +1,18 @@
 
 ================================================================================================================================================
+Changes made to branch 4.16 on 2017/09/011: 
+
+
+- General:
+	
+	-Added a Parameter in the waterballs material. WaterBall now is easy to see when in flight
+        -Added logic to groundwater ( now it can be attracted to the water shield )
+        -Changed water shield art, added assets, added simple logic to make art assets work
+-Important note:
+
+	added logic to BP_waterball and ground water BP
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/010: 
 
 
