@@ -7,7 +7,7 @@ Changes made to branch 4.16 on 2017/09/010:
 	
 	-added new staic mesh for earthball
         -changed the old PFX to work with my assets (earthball)
-        
+        -added new static mesh for EarthShield and set it up to work with blueprint
 -Important note:
 
 	added logic to BP_Earthball
