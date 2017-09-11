@@ -1,3 +1,50 @@
+Changes made to branch 4.16 on 2017/09/11:
+
+	Important note: In this version the way of charging basic attacks was modified. Basicly, was introduced a new layer for trigger the attacks.
+	This will control the passe of the game and give a feeling of being more powerfull. :)..hopefully. 
+
+- General: 
+
+	Added a new channel for collision callled Detector. It is used to charge the advanced attacs now.
+	Added a macro on the library, IsTimeHandlerActive, to check if a given TimerHandler is active or not.  
+
+- BP_WaterBall:
+
+	Added some comments in the nodes.
+	Removed the TimeLine event. This should be deal by the Parent.
+	Changed the curve data for scale (WaterScale) in order to make the grow works on the parent.
+	The event SpawnWaterFromGround is now an Server RPC and the name was changed to ServerSpawnWaterFromGround to keep the structure of names.
+	The TimeToChargeAttack (at BasicSpellData) was modife from 0.5s to 2s, for testing reasons. This is controllled by the balancing in the final game.
+
+- BP_RisingGround_Water:
+
+	Actor now is replicate. 
+	At event BeginPlay I removed the set timer by event and added a SetLifeSpan. Only for cosmetics and is gets more clear.
+	The parameter WaterballBP is now setted at Spawn. This way, it guarantee that this parameter will be passed to the actor at BeginPlay.
+
+- BP_MotionController:
+
+	New events added. They are all within the comment boxe "Check if hand is point to detectors for start attacks". This basicly now, controls 
+	when to start or stop to charge the attacks.
+
+- MotionControllerPawn:
+
+	The inputAction events, AttackRight and AttackLeft, now calls the events StartTraceLine and StopTraceLine at press and release respectively.
+	Added two new StaticMeshComponent, PlayerAura for give player feedback about status on element, qi and maybe life. Attach to it a Detector,
+	This is used to detect if the hands are point down to start charge the basic attacks.
+
+- BP_MPMotionController:
+
+	New events added. They are all within the comment boxe "Check if hand is point to detectors for start attacks". This basicly now, controls 
+	when to start or stop to charge the attacks.
+
+- MPMotionControllerPawn:
+
+	The inputAction events, AttackRight and AttackLeft, now calls the events StartTraceLine and StopTraceLine at press and release respectively.
+	Added two new StaticMeshComponent, PlayerAura for give player feedback about status on element, qi and maybe life. Attach to it a Detector,
+	This is used to detect if the hands are point down to start charge the basic attacks.
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/05:
 
  - General:
