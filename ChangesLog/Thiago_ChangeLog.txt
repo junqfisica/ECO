@@ -1,3 +1,31 @@
+Changes made to branch 4.16 on 2017/09/12:
+
+- General: Added some comments node at BP_WaterShield, BP_RisingGround_Water to Ian.
+
+- Note: BP_RisingGround_Water and BP_RisingGround_Earth are basicly the same object. We could make one Actor, and change the FXs only.
+
+- BP_RisingGround_Water:
+
+	Added a new parameter TargetToFollow. This is an actor type and can be used for both, WaterShield and WaterBall.
+
+- BP_RisingGround_Earth:
+
+	Actor now is tick as replicate, and replicate movements.
+	Comment boxes fix, replace water for earth. 
+
+- AIEnemy_BP:
+
+	AI now detect AdvancedAttacks as well.
+
+- MotionControllerPawn:
+
+	Added a Gate on Swap Elements. Now it's possible to close or open the gate for swap the element. This has a use on Tutorial.
+
+- MotionControllerPawnTutorial:
+
+	Improving Tutorial.
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/11:
 
 	Important note: In this version the way of charging basic attacks was modified. Basicly, was introduced a new layer for trigger the attacks.
