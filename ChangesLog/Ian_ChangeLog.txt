@@ -1,5 +1,21 @@
 
 ================================================================================================================================================
+Changes made to branch 4.16 on 2017/09/012: 
+
+
+- General:
+	
+	-(BP_MotionController) Added some logic to get the arua cylinder and material to act correct. it is located where the feed back for charging basic spells are in BP_MotionController(Event Graph)
+        -(MotionControllerPawn) added new cylinder mesh that is UV mapped correctly.
+        -Created a new material (M_BasicAttackCharging) this is what the arua cylinder uses 
+	-Started to make a PFX for fire elements (P_FireElement and P_FireElement1)  these are Temp and are just tests 
+-Important note:
+ 	-(BP_MotionController) Added some logic 
+        -(MotionControllerPawn) Added new cylinder mesh
+	
+
+================================================================================================================================================
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/011: 
 
 
