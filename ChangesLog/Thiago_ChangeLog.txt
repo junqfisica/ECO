@@ -1,3 +1,25 @@
+Changes made to branch 4.16 on 2017/09/13:
+
+- BP_EarthBarrier:
+
+	The event MakeLitleRocksFall now calls a multicast RPC to run this FXs to all clients. This fixe insues on multiplayer.
+	The StaticMeshComponent is now set with none. Not necessary since the SKM component is in use.
+
+- BP_FireBarrier:
+
+	The fire crack now runs before than the BeginPlay parent node. Fixe insue when barrier can't be cast.
+	Fire crack is now spwan as a multicast RPC by ClientSpawnFireCrack. Locations are passed by the server only. 
+
+- BP_WaterBarrier:
+
+	The water fxs now runs before than the BeginPlay parent node. Fixe insue when barrier can't be cast.
+	Water fxs is now spwan as a multicast RPC by ClientSpawnWaterFxs. Locations are passed by the server only. 
+
+- MotionControllerPawnTutorial:
+
+	Keep improving Tutorial.
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/12:
 
 - General: Added some comments node at BP_WaterShield, BP_RisingGround_Water to Ian.
