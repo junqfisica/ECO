@@ -9,6 +9,7 @@ Changes made to branch 4.16 on 2017/09/012:
         -(MotionControllerPawn) added new cylinder mesh that is UV mapped correctly.
         -Created a new material (M_BasicAttackCharging) this is what the arua cylinder uses 
 	-Started to make a PFX for fire elements (P_FireElement and P_FireElement1)  these are Temp and are just tests 
+	-Added new PFX to Fire barrier, just 1st pass. stills need work
 -Important note:
  	-(BP_MotionController) Added some logic 
         -(MotionControllerPawn) Added new cylinder mesh
