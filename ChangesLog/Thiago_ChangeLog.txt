@@ -1,3 +1,23 @@
+Changes made to branch 4.16 on 2017/09/14:
+
+
+- General: 
+
+	Few widgets added, for tutorial.
+
+- MotionControllerPawnTutorial:
+
+	Increased the scale of the Aura. Probally, Ian now need to tilling the material to looks better, the Yan/Yung symbols are big. 
+
+- BP_WindBarrier:
+
+	Added some comments nodes for Ian.
+
+- MotionControllerPawnTutorial:
+
+	Tutorial almost finish.
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/13:
 
 - BP_EarthBarrier:
