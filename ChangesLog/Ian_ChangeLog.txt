@@ -1,4 +1,22 @@
 
+
+================================================================================================================================================
+Changes made to branch 4.16 on 2017/09/013: 
+
+
+- General:
+	
+	-Added new Wind Barrier visual effect. but for some reason I can spawn the barrier over and over again. it might just be the particle system though...
+        -added textures and materials for new wind barrier  
+	-Replaced the old fire shielf PFX with new one. it is only a place holder for now. but you can revert if you would like. 
+	- Built Lighting in the FightArena level... I think it gives you better prefromace but i could be wrong. Dont worry this is not my final or even a first pass of the lighting. just a test :)
+	
+-Important note:
+ 	-(BP_WindBarrier) Added mesh and PFX to Wind Barrier but for some reason I can spawn the PFX over and over again even when I have two barriers up already.
+
+	
+
+================================================================================================================================================
 ================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/012: 
 
