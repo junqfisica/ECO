@@ -1,3 +1,32 @@
+Changes made to branch 4.16 on 2017/09/15:
+
+- Genral: 
+
+	Added sounds for tutorial.
+
+
+- MotionControllerPawn:
+
+	Added an Event ChargeAura. This host the logic to charge aura. This way is easier to set stuff for multiplayer.
+	Added an Event SetAuraPFX. This host the logic to set on or off the aura PFX. This way is easier to set stuff for multiplayer.
+
+- MPMotionControllerPawn:
+
+	Added the SM and particle system for the multiplayer pawn as well.
+	Added an Event ClientChargeAura RPC multicast. This host the logic to charge aura.
+	Added an Event ClientSetAuraPFX RPC multicast. This host the logic to set on or off the aura PFX.
+
+- BP_MotionController:
+
+	Added Ian's logic for the aura into one TimeLine (StartBasicAttack). 
+	The Event StopChargeBasicAttack is now call CoolDownAura. Fits better to the logic.
+
+- BP_MPMotionController:
+
+	Added the aura logic for the multiplayer. Works very similar to the one on single player.
+	
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/14:
 
 
