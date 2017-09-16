@@ -1,25 +1,23 @@
 
-
-
-
 ================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/015: 
 
 
 - General:
 	
-	-I liked the base start of the wind attack so I just added to it. 
-        -Optimized some attack PfXs and all the impact PFXs
-	-Updated wind shield
-
+	-Added on to the existing wind PFX I liked the base of it so I added and modified it 
+        -Optimized some textures by reducing size (LOD bias ) 
+	-Updated fire to be less smokey and more clean. let me know if you want me to take another pass at it.
+	-Changed the Fire Shield PFX to a placeholder one that has the same material as the fire barrier.
 	
 	
 -Important note:
- 	--Modified alot of the PFXs and updated all wind effects
+ 	--Rescaled mesh so that it worked as you requested. also added some logic for scaling the mesh over time(timeline). feel free to change or modify
 
 	
 
-================================================================================================================================================================================================================================================================================================
+================================================================================================================================================
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/014: 
 
 
