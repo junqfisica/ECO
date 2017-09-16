@@ -1,3 +1,14 @@
+Changes made to branch 4.16 on 2017/09/16:
+
+- Genral:
+
+	(For Carlos) Inputs from mouse were removed from MotionControllerPawn.	
+
+- MotionControllerPawnTutorial:
+
+	Finished tutorial with sounds inclued.
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/15:
 
 - Genral: 
