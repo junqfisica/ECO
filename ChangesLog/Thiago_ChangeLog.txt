@@ -1,3 +1,17 @@
+Changes made to branch 4.16 on 2017/09/18:
+
+- BP_AdvancedAttacks:
+
+	Added an ServerCheckForQi server RPC. Runs only on the server to check and consume qi.
+
+- MPMotionControllerPawn:
+
+	At the function CastBarrier, now gets the server hand velocity instead of GetHandVelociity only. This should fix problems for the client to cast the barrier.
+
+- MotionControllerPawnTutorial:
+
+	Fixed minor bugs.
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/16:
 
 - Genral:
