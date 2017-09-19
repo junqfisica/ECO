@@ -1,3 +1,14 @@
+Changes made to branch 4.16 on 2017/09/19:
+
+- General:
+
+	Added an BP_AIhand. Start the logic for two hands cast.
+
+- AIEnemy_BP:
+
+	Start improviments to AI. Some nodes will be passed to BP_AIhand.
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/18:
 
 - BP_AdvancedAttacks:
