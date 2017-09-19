@@ -1,5 +1,23 @@
 
 ================================================================================================================================================
+Changes made to branch 4.16 on 2017/09/18: 
+
+
+- General:
+	
+	-Added more parameters to water material.... working on getting all the water elemets stuff to use one material. 
+        -Created a prototype for water special ability
+	-Added some logic to water special ability
+	
+	
+	
+-Important note:
+ 	-Created prototype/first pass of water special ability
+
+	
+
+================================================================================================================================================
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/015: 
 
 
