@@ -1,18 +1,4 @@
 
-
-================================================================================================================================================
-Changes made to branch 4.16 on 2017/09/19: 
-
-
-- General:
-	
-	-fiddled with water material. also still changing all the water materials to use the same parent material. still a work in progress
-        -worked on the advanced water ability.
-
-	
--Important note:
- 	-worked on the advanced water ability.
-
 ================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/18: 
 
