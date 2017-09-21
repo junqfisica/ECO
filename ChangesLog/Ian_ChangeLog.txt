@@ -1,5 +1,23 @@
 
 ================================================================================================================================================
+Changes made to branch 4.16 on 2017/09/20: 
+
+
+- General:
+	
+	-Now all water abilitys and FX's use one master material and its instances. have been playing around with diffrent values and setting to test optimization.
+        -Deleted all old/unused material that where water
+	-worked on water advanced ability... going to put a hold on it for now because Thiago came up with a cool idea and we have to modify game design/logic before we continue.
+	
+	
+	
+-Important note:
+ 	-Now all water abilitys and FX's use one master material and its instances.
+
+	
+
+================================================================================================================================================
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/18: 
 
 
