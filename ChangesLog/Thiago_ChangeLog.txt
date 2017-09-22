@@ -1,3 +1,13 @@
+Changes made to branch 4.16 on 2017/09/22:
+
+- General:
+
+	Started to change the behavior tree.
+	Duplicate the AI actor, BT and BB. Just for safety.
+
+
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/19:
 
 - General:
