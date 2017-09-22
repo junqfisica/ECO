@@ -1,5 +1,26 @@
 
+
+
 ================================================================================================================================================
+Changes made to branch 4.16 on 2017/09/21: 
+
+
+- General:
+	
+	-Updated Aura effect and added a decal to the playerpawn. the colors are not final. just placeholder,
+        -Added some logic to the BP_MotionController so that effect works the right way
+	-Created new Beam PFX for the Aura, not finished just proof of concept.
+	-Created 2 more materials one for the beam and the other for the decal.
+	
+	
+	
+-Important note:
+ 	-Added some logic to the BP_MotionController so that effect works the right way
+        -Updated Aura effect and added a decal to the playerpawn.
+
+	
+
+================================================================================================================================================================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/20: 
 
 
