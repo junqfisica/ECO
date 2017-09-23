@@ -1,6 +1,24 @@
 
+================================================================================================================================================
+Changes made to branch 4.16 on 2017/09/22: 
 
 
+- General:
+	
+	-Worked on Earth super ability. 
+        -Created new assets for Earth super ability, Bp_EarthExplosion (I tried to keep it all in the earth ability but some things would not work...so i made a new BP for the effect) and PFX_ADV_EarthAttack.
+	-Created new Beam PFX for the Aura, not finished just proof of concept.
+	-Created 2 more materials one for the beam and the other for the decal.
+	
+	
+	
+-Important note:
+ 	
+		-see General
+
+	
+
+==========================================================================================================================================================
 ================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/21: 
 
