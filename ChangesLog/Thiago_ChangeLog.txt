@@ -1,3 +1,21 @@
+Changes made to branch 4.16 on 2017/09/25:
+
+- General:
+
+	Name of AI bp changed from AIEnemy_BP to BP_AIEnemy_Update (Temporary).
+
+- BP_AIEnemy_Update:
+
+	BasicAttack update to work similar to the new way of casting.
+	Mostly of the basick attack and shield logic are being passed to BP_AIhand. This way the logic for both hands attack and defense will be easier to implement.
+
+-  BP_AIhand:
+
+	Basic attack casting system implemented.
+	Started the shield implementation.
+
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/22:
 
 - General:
