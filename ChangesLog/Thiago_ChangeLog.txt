@@ -1,3 +1,34 @@
+Changes made to branch 4.16 on 2017/09/26:
+
+- General:
+
+	Fixed some insues with vibration on hit hands or shield. Before, when shield or hand was hit the player was vibration both controlers. 
+	Still working on AI. In this version AI manu not be fully functional. 
+
+- MPMotionControllerPawn:
+
+	Just after the event OnDamage, it checks if damage is bigger than zero, if so, continue otherwise do nothing. This way avoid to shake hands when player is hit
+	with no damage.
+	Before shake both hands, now it checks if instigator is shield or not. Only rumble both hands if player recived a direct damage.
+	The event ClientVibrateCamareAndControllers runs on ownig client only, instead of being a multicast.
+
+- MotionControllerPawn:
+
+	Just after the event OnDamage, it checks if damage is bigger than zero, if so, continue otherwise do nothing. This way avoid to shake hands when player is hit
+	with no damage.
+	Before shake both hands, now it checks if instigator is shield or not. Only rumble both hands if player recived a direct damage.
+
+- BP_MotionController:
+
+	The event RumbleController added a vibration for rift.
+	After the event OnDamage, it calls the RumbleController. This vibrates only the hand that was hit and it plays over shake hands in case this is activate.
+
+- BP_MPMotionController:
+
+	The event RumbleController added a vibration for rift.
+	After the event OnDamage, it calls the RumbleController. This vibrates only the hand that was hit and it plays over shake hands in case this is activate.
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/25:
 
 - General:
