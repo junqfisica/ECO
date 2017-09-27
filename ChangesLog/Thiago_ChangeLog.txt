@@ -1,3 +1,12 @@
+Changes made to branch 4.16 on 2017/09/27:
+
+- General:
+
+	AI improvments almost done.
+	Create 10 different levels of AI. 
+	In this version barriers are still off, and the AI defends only with one hand.
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/26:
 
 - General:
