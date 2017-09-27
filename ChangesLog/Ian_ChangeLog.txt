@@ -1,5 +1,28 @@
 
 
+
+================================================================================================================================================
+Changes made to branch 4.16 on 2017/09/26: 
+
+
+- General:
+	-BP_GAir01(still a work in progress) 
+		-prototyping out the method and the "look" that was the request for the Air attack, still fiddling and researching best way.
+        	-Created a new BP called [BP_AirAttackPrototype] this is where all the logic for the special effect (this assets name will change)
+		- The air attack is now a two staged attack. might not be doing this the right way but it works for now, also incase we need to show clients I have added a placeholder effect but you will want to turn	
+		  of the logic that spawns the [BP_AirAttackPrototype]
+		
+	-Other
+	
+		-Added some new assets (static mesh and material instances) for new Air special effect
+	
+-Important note:
+ 	
+		-see General
+
+	
+
+=========================================================================================================================================================
 ================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/25: 
 
