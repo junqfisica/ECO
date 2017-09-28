@@ -1,3 +1,21 @@
+Changes made to branch 4.16 on 2017/09/28:
+
+- General:
+
+	Finished first stage AI improviments. AI now cast basic attacks and shield with both hands. Barrier grows only based on the 
+	element set on the left hand. It also defends advanced attacks but still don't use it for attack.
+	AI now, can be built in diffrent levels and flovors (Elements tha it can manipulate.). 
+	To chose a certain AI, select the AI in the level and set the AILevel parameter to one of the options.
+
+	Added a widget call WBP_CustomMenu. The player can pop up this menu pressing the menu button (MC = Shouder, or M on KeyBorad).
+	Added a BP_CustomMenu to hold the WBP_CustomMenu.  
+
+- MotionControllerPawn:
+
+	Added an action input called ShowCustomMenu that is triggered when the player press the menu button (MC = Shouder, or M on KeyBorad).
+	Added a logic to it for turn on and off the custum menu. (Still some details to fix.)
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/27:
 
 - General:
