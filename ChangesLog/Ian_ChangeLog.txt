@@ -2,6 +2,23 @@
 
 
 ================================================================================================================================================
+Changes made to branch 4.16 on 2017/09/27: 
+
+
+- General:
+	
+	-Continued to work on advance air ability (getting close but still a WIP)
+	-Scaled up all the source mesh for barriers and modifed PFX's and BP's so then everything works correctly. ( I couldnt get the Barriers to fall all the way down was wondering if Thiago could help me out and od that real fast)
+	
+		
+-Important note:
+ 	
+		-see General
+
+	
+
+=========================================================================================================================================================
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/26: 
 
 
