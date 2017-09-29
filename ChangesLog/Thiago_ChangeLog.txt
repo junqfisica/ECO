@@ -1,3 +1,19 @@
+Changes made to branch 4.16 on 2017/09/29:
+
+- General:
+
+	Changed replications setup for the actors: BP_BasicAttack, BP_AdvancedAttacks, BP_Barrier, BP_MPMotionControler, and MPMotionControllerPawn.
+	Details and new values were saved in a pdf file and shared with Carlos. Trying to solve problems of lag at the Client.
+
+	Loop for a single player fight done. Now only some parameters ajusting at AI may be required, and later a UI interaction rather than 
+	fight again automaticly. Ps: Player can quite the fight at any time using the custom menu.
+
+- FightArena:
+
+	Now you can try to defeat 12 AI levels. I chalange who can...hehe.
+
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/28:
 
 - General:
