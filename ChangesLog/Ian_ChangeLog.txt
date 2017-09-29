@@ -1,6 +1,27 @@
 
 
 
+
+
+
+================================================================================================================================================
+Changes made to branch 4.16 on 2017/09/28: 
+
+
+- General:
+	
+	-Got the Advanced Air attack working. left a message for you on trello explaining the details. no worries if you want to change the logic! I just wanted to get in a working prototype :)
+	-Working on Fire advance ability. keeping those files local but just wanted to let you know I am making progress.
+-	-Created a new BP projectile. this is what I was thinking we could use to damage the enemy with the new attack design. (BP_AirAttackTailProjectile)
+	
+		
+-Important note:
+ 	
+		-see General
+
+	
+
+=========================================================================================================================================================
 ================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/27: 
 
