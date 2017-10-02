@@ -1,3 +1,34 @@
+Changes made to branch 4.16 on 2017/10/02:
+
+
+- General:
+
+	Started to implement all Ian's change to multiplayer as well.
+
+- MotionControllerPawn:
+
+	Added a macro ActivateBeams. This macro has the logic made by Ian to activate the particles for the beam.
+	Organized the node for charge aura.
+	Removed decay from components and added plane SM (AuraSymbol) to host the material for the symbol at the ground. This makes easier to rescale 
+	the image.
+	Rescale PlayerAura SM to 3,3,4
+
+- MPMotionControllerPawn:
+
+	Added the logic for charging aura on MP as well.
+
+- BP_MPMotionController:
+
+	Set Only relevant to owner as false. If this is true a lot pro replications erros happen. 
+	Added a bool parameter CanAuraCharge, which is set as replicate.
+
+- BP_GAir01:
+
+	Start to implement the Advanced air attack to work in mp. 
+	Made some modifications on the spwan AirAttackTrail to attack it regardless hand rotation.
+
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/09/29:
 
 - General:
