@@ -1,3 +1,11 @@
+Changes made to branch 4.16 on 2017/10/03:
+
+General:
+- Added initialization of GameNetworkManager properties TotalNetBandwidth=30000, MaxDynamicBandwidth=10000, MinDynamicBandwidth=5000; the explanation of what 
+they are is in the following link: https://answers.unrealengine.com/questions/353439/how-can-i-increase-network-bandwidth-limit.html.
+These change the bandwidth that are alocated for the server and client.
+
+===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/08/09:
 
 Blueprint classes:
