@@ -1,3 +1,43 @@
+Changes made to branch 4.16 on 2017/10/03:
+
+- General:
+
+	Improving performance on multiplayer. 
+	All replicated actor have netupdatefrequency from 90 to 100.
+	In this version the multiplayer was tested in lan and the lag deacrease A LOT (almost no lag), after the changes made and described below. 
+	Improvments in Advanced attacks are still necessary. 
+
+- BP_EarthBall:
+
+	Removed the SM used by Ian, using the same logic with the VisualMesh that was there. Having more SM is probably have for repliaction.
+	Now SpawnEarthFromGround is a ClientSpawnEarthFromGround multicast rpc. This way the actor BP_RisingGround_Earth don't need to be replicate.
+	ClientSetSacel is now overrinding the parent to set the scale relative. This fixes size problem on Earth using the VisualMesh.
+
+- BP_Rising_Ground_Earth:
+
+	This actor is now replicate anymore.
+	SetLifeSpawn is set to 1 sec now. Looks better when it merger with the main actor.
+
+- BP_BasicAttacks:
+
+	Added and event ClientStartChangeAcceleration multicast rpc. This now applies velocity and acceleration. 
+	The parameter ProjectileTarget is now replicated.
+
+- BP_EarthBarrier:
+
+	StartZlocation is now -800. This makes the barrier start even more under the ground.
+
+- MPMotionControllerPawn:
+
+	SpeedFactor deacrese from 0.1 to 0.01. It makes barrier start grows very slow. PS: In the future this parameter should belong to the BP_Barrier.
+
+- MotionControllerPawn:
+
+	SpeedFactor deacrese from 0.1 to 0.01. It makes barrier start grows very slow. PS: In the future this parameter should belong to the BP_Barrier.
+
+	
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/02:
 
 
