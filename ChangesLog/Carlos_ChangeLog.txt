@@ -1,9 +1,17 @@
+Changes made to branch 4.16 on 2017/10/04:
+
+Blueprint classes:
+- BP_WaterBall:
+      Modified event ServerSpawnWaterFromGround; now a multicast rpc taking a vector variable as the position of the server; also sets the ball mesh after 
+       testing if the spawned object is valid.
+
+===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/03:
 
 General:
 - Added initialization of GameNetworkManager properties TotalNetBandwidth=30000, MaxDynamicBandwidth=10000, MinDynamicBandwidth=5000; the explanation of what 
-they are is in the following link: https://answers.unrealengine.com/questions/353439/how-can-i-increase-network-bandwidth-limit.html.
-These change the bandwidth that are alocated for the server and client.
+  they are is in the following link: https://answers.unrealengine.com/questions/353439/how-can-i-increase-network-bandwidth-limit.html.
+  These change the bandwidth that are alocated for the server and client.
 
 ===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/08/09:
