@@ -1,3 +1,47 @@
+Changes made to branch 4.16 on 2017/10/04:
+
+ - Important: 
+
+	The BP_Rising_Ground_Earth is now call BP_Rising_Ground. This BP deals now with any element you want to rise. BP_Rising_Ground_Water 
+	now is not being used, it become redundant.
+
+- BP_Rising_Ground:
+
+	This class now makes the set up for the element you want to rise from the ground. The set up is made on the constructor script.
+	This class has two parameters that must be set on spawn; target to follow and element, in order to work fine. This centralize 
+	everything here, end we don't need to repeat code and create more actors.  
+
+- BP_GEarth01:
+
+	Removed the SM added by Ian. Now everything works with the root SM. 
+	Add a simples sphere collision on the SM_EarthBall.
+	The rotation now only starts after the SpawnEarth timeline is fineshed. Avoid two timelines to run at the same time. (Ps: The Then node do not wait the timeline to 		finish).
+
+- BP_AirAttackTail:
+
+	This actor is now being replicated.
+	Added a swicthHasAutority before shoot the projectiles.
+
+- BP_GWater01:
+
+	Set invisible all the components that are no inherited from GWater01. All this compenents must be removed from this actor.
+	Created another actor call BP_WaterTornado to do the same thing. This way this actor can be spawn at client 
+	and server without replication.
+
+BP_WaterTornado:
+
+	Started the same logic here that Ian did inside the GWater01. Didn't add the particle system yet.
+
+MPMotionControllerPawn: 
+
+	Integrate a custom menu to the mutiplayer pawn. 
+
+
+- BP_MPMotionController:
+
+	The function Activate Interaction now gets a bool call deactivate and hide the ray cast after. 
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/03:
 
 - General:
