@@ -1,3 +1,32 @@
+Changes made to branch 4.16 on 2017/10/05:
+
+- Notes: 
+
+	Projectiles now can pass throught barriers when they are destroyed.
+
+- Fixes:
+
+	Fix a small bug on the custom menu. Now when you press resume button it turn off the hand interaction properly. 
+
+- MPMotionControllerPawn:
+
+	On macro CastGWater01 now I get the arrow forwardVector instead of the Camera forwardVector. This avoid to get wrong direction. 
+
+- BP_Barrier:
+
+	OnDamage call a function ReduceDamageFromLife that subtract damage from attacks based on barrier's remaning life.
+
+- BP_BasicAttack:
+
+	OnHitComponent event it checks if the hit was at the barrier, if yes, then checks if there are any damage left before destroy the attack. If there are 
+	still damage then it reset the projectile moviment after barrier is destroyed. This makes the projectile to go throught.
+
+BP_AdvancedAttack:
+
+	Same as basic attacks.
+
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/04:
 
  - Important: 
