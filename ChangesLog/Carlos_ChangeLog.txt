@@ -1,5 +1,18 @@
 Changes made to branch 4.16 on 2017/10/04:
 
+General:
+- Removed initialization of the GameNetworkManager from DefaultEngine.ini, since it was not there that it should have been done and there is another one.
+- Added initialization of the NetDriver variables MaxClientRate=40000 and MaxInternetClientRate=40000. Some trippy effects with this config when moving 
+   the head in non VR (only seen by the oponent).
+
+Bluprint classes:
+- MPMotionControllerPawn:
+      Modified timer for movement update, set during BeginPlay execution. Now timer loops every 0.1 s.
+      Changed NetPriority from 3 to 1.
+
+===================================================================================================================================================================
+Changes made to branch 4.16 on 2017/10/04:
+
 Blueprint classes:
 - BP_WaterBall:
       Modified event ServerSpawnWaterFromGround; now a multicast rpc taking a vector variable as the position of the server; also sets the ball mesh after 
