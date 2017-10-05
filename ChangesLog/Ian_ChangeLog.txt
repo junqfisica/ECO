@@ -1,5 +1,26 @@
+
 ================================================================================================================================================
-Changes made to branch 4.16 on 2017/09/3: 
+Changes made to branch 4.16 on 2017/10/4: 
+
+
+- General:
+	
+	-Map FightArena
+		Heavily optimized, should have no problem running it on your laptop 
+
+	-Map MultiplayerMap
+		Heavily optimized, should have no problem running it on your laptop
+	-Map Tut Map
+		Heavily optimized, should have no problem running it on your laptop 
+	-BP_WaterTornado
+		Fixed as requested 
+	-SM_Shrine
+		-Worked on texture. still WIP
+
+	
+
+=========================================================================================================================================================================================================================================================================================================
+Changes made to branch 4.16 on 2017/10/3: 
 
 
 - General:
@@ -17,7 +38,7 @@ Changes made to branch 4.16 on 2017/09/3:
 
 =========================================================================================================================================================
 ================================================================================================================================================
-Changes made to branch 4.16 on 2017/09/2: 
+Changes made to branch 4.16 on 2017/10/2: 
 
 
 - General:
