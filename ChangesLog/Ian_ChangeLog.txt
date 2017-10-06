@@ -1,4 +1,18 @@
 
+Changes made to branch 4.16 on 2017/10/6: 
+
+
+- General:
+	
+	-Now when AI pawn shoots water attack opacity changes to no transparent. 
+		-Logic is in: BP_AIHand > Function: ActivateBasicAttack > (New Logic) you will see comment
+	-Water basic attack opacity is not set for 1 during multiplayer 
+
+	-Made Water projectile for Advanced water attack now visable.
+
+
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/5: 
 
 
