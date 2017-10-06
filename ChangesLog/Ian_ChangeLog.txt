@@ -1,4 +1,13 @@
 
+Changes made to branch 4.16 on 2017/10/5: 
+
+
+- General:
+	
+	-Added new sapling (baby tree) asset to all maps 
+	- worked on new rocks but ran in to  some problems. these seem to cause a frame drop, maybe its the lightning. not addeidn to levels in use until optimized.
+	-Created new level called FightArenaTEST. this is wher I test new assets before putting them in a real level.
+	-working on new tile fot tut level
 ================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/4: 
 
