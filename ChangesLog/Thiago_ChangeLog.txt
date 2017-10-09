@@ -1,3 +1,36 @@
+Changes made to branch 4.16 on 2017/10/09:
+
+
+- Note: 
+
+	Added new Branch called Alpha-Release.
+	Made some fixed or changes that was sent on whatapp. 
+	Advanced Attacks now uses the trigger button to be cast as well.
+	
+- General:
+
+	Inclued a new level for introduction.
+	Change the DefaultEngine.ini file, added some networked configuration.
+
+- WBP_MenuRoom:
+
+	Multiplayer button was disable and is not bind to EnableButtons anymore. For aplha-release.
+
+- MotionControllerPawn:
+
+	Disconencted nodes used with mouse.
+	Removed some prints.
+	SpeedyFactor changed from 0.01 to 0.05
+
+- MPMotionControllerPawn:
+
+	SpeedyFactor changed from 0.01 to 0.05
+
+- BP_HandAI:
+
+	On ActivateAttack if the attack is earth increase the pawn scale to 2.2. This fixes the inssue of earth ball being small at AI. I need to check 
+	why this was happening. 
+===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/05:
 
 - Notes: 
