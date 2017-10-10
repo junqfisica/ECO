@@ -1,4 +1,25 @@
 
+Changes made to branch 4.16 on 2017/9/9: 
+
+
+- General:
+	
+	-Fixed lighting issue with trees turning black but still have to get to the root of the problem...  seem to be getting this error: 
+
+"LightingResults: Info SM_Tree_01 Lightmap UV are overlapping by 99.5%. Please adjust content - Enable Error Coloring to visualize.
+LightingResults:Warning: Warning SM_Tree_01 Object has wrapping UVs.
+LightingResults:Warning: Warning SM_Tree_01 Object has overlapping UVs."
+	
+	Im 99% sure I need to make a 2nd UV set in 3ds max and or a diffrent material.
+	
+	-Spent most the day tracking issue above....lots of waiting for lights to build...
+-	-tweaked foliage settings
+	-worked on optimizing fire barrier 
+
+
+
+================================================================================================================================================
+
 Changes made to branch 4.16 on 2017/10/6: 
 
 
