@@ -1,3 +1,41 @@
+Changes made to branch 4.16 on 2017/10/10:
+
+- General:
+
+	Reverse Advanced Attacks to work with Face1 buttons. Avoid problems with superposition of events. Need a more carefull implementation here.
+
+- BP_AIHand:
+
+	Added interface BPI_TakeDamage. Fix proplem that AI was not taking damage from shield. 
+	Removed logic at ActivateBasicAttack to change water opacity. Moved to BP_WaterBall.
+
+- BP_AirAttackTailProjectile:
+
+	Set DetectionSphere radius to 1 and to no collision. To avoid this detection to happens.
+
+- BP_AIEnemey_Update:
+
+	Added a quick fix for AI to defend advanced air attack. Not sure yet why from sweep returns false only to air.  
+
+- BP_Gwater01:
+
+	Cast tornado before the BeginPlay of Parent. This is necessary to check QI first.
+	On event Destroyed it destroy the tornado. 
+
+- BP_WaterShield.
+
+	Increased the size of the collisions physics assets at Water_Shield_1_PhysicsAsset. 
+
+- BP_WaterProjectile:
+
+	Set a life time for projectiles.
+	If target is not found destroy projectile.
+
+- BP_WaterBall:
+
+	Override the AI Cast node for change water opacity.
+	
+===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/09:
 
 
