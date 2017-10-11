@@ -1,4 +1,18 @@
 
+
+Changes made to branch 4.16 on 2017/10/10: 
+
+
+- General:
+	
+	-Finally found the root to the problem with the tree. Turns out the mesh was all sorts of messed up. The mesh has 5 UV channels making unreal confused on which one to use for light maps. this took me FOREVER to find! glad we caught it early tho
+	-Remodeled and reunwrapped tree  (mainly its trunk) optimized it by 2000 polys and fixed UV map channel issue.
+	- worked on optimizing foliage and lighting. 
+	-fixed issue with materials not compiling.
+	-Built all lighting in used levels. seems to have help Framrate
+
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/9/9: 
 
 
