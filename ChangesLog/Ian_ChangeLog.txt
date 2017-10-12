@@ -1,5 +1,22 @@
 
 
+
+Changes made to branch 4.16 on 2017/10/11: 
+
+
+- General:
+	
+	-Added alot of polish the FightArena map, added new plant, new rocks , added waterfall
+	-Fixed light build issue with colum static mesh, took it into 3ds max and re Uv'ed it, similar problem that the tree had.
+	- baked lights in Fight arena and Tut level
+	-All around optimization with textures and lights
+
+Note
+
+	-feel like It runs way better now.
+
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/10: 
 
 
