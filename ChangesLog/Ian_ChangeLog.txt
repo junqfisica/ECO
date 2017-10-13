@@ -1,6 +1,15 @@
 
+Changes made to branch 4.16 on 2017/10/12: 
 
 
+- General:
+	
+	-Added all the polish i did for fightarena over to MP map
+	-added new temple tile static mesh to Tut level
+	-All around polish
+
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/11: 
 
 
