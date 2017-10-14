@@ -1,4 +1,13 @@
 
+Changes made to branch 4.16 on 2017/10/13
+
+
+- General:
+	
+	-added new props and polish to menu level
+	-played with lighing in fightarena
+	
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/12: 
 
 
