@@ -1,3 +1,17 @@
+Changes made to branch 4.16 on 2017/10/16:
+
+- General:
+
+	Trying to fix problems on AI not showing up sometimes. After changes couldn't see AI dissapering anymore.
+	Remodulate some voices sound.
+	Added our AppID to DefaultEngine.ini to 672790.
+	We removed buda from MenuLevel. Best to avoid religius simbols. ;)
+
+- BP_Rising_Ground:
+
+	Turn off colison on the SM. Only overlaps now. Fix insues when it was coliding with AI.
+
+===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/10:
 
 - General:
