@@ -1,3 +1,53 @@
+Changes made to branch 4.16 on 2017/10/18:
+
+
+- MPMotionControllerPawn:
+
+	Fixed CustomMenu for Oculus.
+
+- MotionControllerPawn:
+
+	Fixed CustomMenu for Oculus.
+	Removed change of elements that Ian implelemnted from the pawn. Now this is done at the function SetElement at BP_MotionController. Avoid futher bugs, 
+	manly on tutorial.
+	I desconected the node where Ian roted the hand for Vive. This rotation interfired with the way the basic attack is released. We need to check a 
+	better way of doing it. For now don't mess with it. 
+	Desconected the SetLocationAndRotation from thick event. Here is not good for performance and there are error being printed related to SM_PlayerTorso. 
+	Made the Child actor component attach to DefaultSceneRoot instead of VROrigin. Try to avoid possible diference beteween Vive and Rift, since 
+	VROrigin rotates 180d for Vive and not for Rift.
+	Added a call to PlayNotEnoughtQiAnim to the new 3D Health bar that Ian created.  
+
+- BP_MotionController:
+
+	Added a parameter HealthQi3DBar. This is set at BeginPlay.
+	Added some new logic at the function SetElement. Sets the element feedback to the HealthQiBar.
+
+- FightArena Level BP:
+
+	Added a delay to open the gate to destroy the AI.
+
+- BP_3D_HealthBar:
+
+	Many events here are obsolet now. See the blueprint.
+	Added a new event call SetFeedBackColor. This event now deals with what color to set in each sphere.
+	At ConstructScript I create two material instances from M_HealtBar to set the elements in each sphere. Ps: the other material 
+	instances are now obsolet (Not in use).
+	At ConstructScript set ManaInstances and QiBars. Useful for easy manipulation.
+	Added a scene componet to hold the Qi Bars. This will be useful to play an animation when Qi is not enought. Then we can just change the 
+	scale of the holder instead of one by one. 
+	Added a comment node for Ian at SetQiPercent
+	Added a new event called PlayNotEnoughtQiAnim. This is called by the Pawn when the Qi is not enoght to perform some action.
+
+- BP_WindShield:
+
+	Center the particle system with the SM.
+
+- BP_FireShield:
+
+	Turn off colision at the SM root. Using only on the SM that Ian added.
+	RotationOffSetForLeftHand is 180 at y-axis now. Fix problem on left hand not being show right.  
+
+===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/16:
 
 - General:
