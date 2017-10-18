@@ -1,4 +1,18 @@
 
+
+Changes made to branch 4.16 on 2017/10/17
+
+
+- General:
+	
+	-Fixed Ragdoll in BP_AIenemy  still need tuning
+	-Added mesh body to Pawn and Tut Pawn
+-	-New Material for health 3d bar
+	-Added 1st pass/PlaceHolder 3d Health Bar. (BP_3D_HealthBar)
+	-Added new logic to motion pawn for new healthbar and mesh body
+	
+	
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/13
 
 
