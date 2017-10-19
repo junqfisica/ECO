@@ -1,3 +1,20 @@
+Changes made to branch 4.16 on 2017/10/19:
+
+- General: 
+
+	Added a new map for traning.
+	Added a new BP called BP_PlayerBody. This now host the logic for following the player HMD.
+
+- WBP_MenuRoom:
+
+	Added a new button to go to Traning map.
+
+- MotionControllerPawn:
+
+	Remove the Torso SM from here. Adding to much SM on the player can cost data to replicate in MP. So, I already put in a more MP friendly way.
+	Added an event to Spwan the BP_PlayerBody. For MP this will be a multicast rpc.
+
+===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/18:
 
 
