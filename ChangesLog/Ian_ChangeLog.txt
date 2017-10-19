@@ -1,5 +1,20 @@
 
 
+
+
+Changes made to branch 4.16 on 2017/10/18
+
+
+- General:
+	
+	-Changed The body logic to a "set timer"Event at a loop rate of .01. this is a little under 60 FPS refresh rate and looks fine. so its way cheaper the off the Tick event which runs everyframe. :)
+	-Added logic to BP_3d_Healthbar  to function like original progress Qi bars.  still a place holder or WIP just getting things to function.
+	-Modified Ui materials	
+	-Removed uneeded logic from Tut pawn that I put yesterday
+	-Changed flags and anims of tribune_BP
+	
+	
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/17
 
 
