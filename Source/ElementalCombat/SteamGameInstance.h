@@ -7,6 +7,21 @@
 #include "SteamGameInstance.generated.h"
 
 /**
+*
+*/
+USTRUCT(BlueprintType)
+struct FCustomBPSessionResults
+{
+	GENERATED_USTRUCT_BODY()
+
+		FOnlineSessionSearchResult SessionResultInternal;
+};
+
+/// These are delegates types for BP binding
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnFindSessionsSuccessful, TArray<FOnlineSessionSearchResult>, Results);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnFindSessionsNotSuccessful);
+
+/**
  * 
  */
 UCLASS()
@@ -23,7 +38,7 @@ private:
 public:
 	/// Fields
 	/** Map name to use in the StartSession callback */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Network")
 	FName ArenaMapName;
 
 	/** Map name to use in the DestroySession callback */
@@ -33,6 +48,13 @@ public:
 	/** Map name to use in the DestroySession callback */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FName GameSessionName;
+
+	/**
+	* Delegates used in the callbacks of the OnlineSessionInterface; 
+	* bound in BPs
+	*/
+	FOnFindSessionsSuccessful OnFindSessionsSuccessfulDelegate;       /// Successful
+	FOnFindSessionsNotSuccessful OnFindSessionsNotSuccessfulDelegate; /// Not successful
 
 	/** Delegates for the callbacks of the OnlineSessionInterface */
 	FOnCreateSessionCompleteDelegate OnCreateSessionCompleteDelegate;   /// Create call

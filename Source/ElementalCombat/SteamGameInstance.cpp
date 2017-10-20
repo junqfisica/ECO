@@ -60,12 +60,6 @@ void USteamGameInstance::PrintSessionSettings(const FOnlineSessionSettings & Set
 }
 
 /// Helper methods
-void USteamGameInstance::FindGames(bool IsLan, bool IsPresence)
-{
-	/// Call our custom FindSessionInternal function
-	FindSessionsInternal(GetLocalPlayer()->GetPreferredUniqueNetId(), IsLan, IsPresence);
-}
-
 IOnlineSessionPtr USteamGameInstance::GetSessionInterface()
 {
 	/// Get the Online Subsystem set in DefaultEngine.ini
@@ -210,7 +204,8 @@ void USteamGameInstance::OnStartOnlineGameComplete(FName SessionName, bool bWasS
 
 void USteamGameInstance::OnFindSessionsComplete(bool bWasSuccessful)
 {
-	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Yellow, FString::Printf(TEXT("OFindSessionsComplete bSuccess: %d"), bWasSuccessful));
+	UE_LOG(LogTemp, Warning, TEXT("OnFindtSessionsComplete, %d"), bWasSuccessful)
+	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Yellow, FString::Printf(TEXT("OnFindSessionsComplete bSuccess: %d"), bWasSuccessful));
 
 	// Get SessionInterface of the OnlineSubsystem
 	IOnlineSessionPtr Sessions = GetSessionInterface();
@@ -220,20 +215,19 @@ void USteamGameInstance::OnFindSessionsComplete(bool bWasSuccessful)
 		Sessions->ClearOnFindSessionsCompleteDelegate_Handle(OnFindSessionsCompleteDelegateHandle);
 
 		// Just debugging the Number of Search results. Can be displayed in UMG or something later on
-		GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, FString::Printf(TEXT("Num Search Results: %d"), SessionSearch->SearchResults.Num()));
+		UE_LOG(LogTemp, Warning, TEXT("Num Search Results: %d"), SessionSearch->SearchResults.Num())
+		GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Yellow, FString::Printf(TEXT("Num Search Results: %d"), SessionSearch->SearchResults.Num()));
 
 		// If we have found at least 1 session, we just going to debug them. You could add them to a list of UMG Widgets, like it is done in the BP version!
 		if (SessionSearch->SearchResults.Num() > 0)
 		{
-		// "SessionSearch->SearchResults" is an Array that contains all the information. You can access the Session in this and get a lot of information.
-		// This can be customized later on with your own classes to add more information that can be set and displayed
-	    	for (int32 SearchIdx = 0; SearchIdx < SessionSearch->SearchResults.Num(); SearchIdx++)
-		    {
-				// OwningUserName is just the SessionName for now. I guess you can create your own Host Settings class and GameSession Class and add a proper GameServer Name here.
-				// This is something you can't do in Blueprint for example!
-				GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, FString::Printf(TEXT("Session Number: %d | Sessionname: %s "), SearchIdx + 1, *(SessionSearch->SearchResults[SearchIdx].Session.OwningUserName)));
-			}
+    		OnFindSessionsSuccessfulDelegate.Broadcast(SessionSearch->SearchResults);
 		}
+		else
+		{
+			
+		}
+
 	}
 }
 
@@ -278,6 +272,13 @@ void USteamGameInstance::HostGame(FName SessionName, bool bLanMode, bool bPresen
 	/// Call our custom CreateSessionInternal function. 
 	CreateSessionInternal(GetLocalPlayer()->GetPreferredUniqueNetId(), SessionName, bLanMode, bPresence, MaxPlayers);
 }
+
+void USteamGameInstance::FindGames(bool IsLan, bool IsPresence)
+{
+	/// Call our custom FindSessionInternal function
+	FindSessionsInternal(GetLocalPlayer()->GetPreferredUniqueNetId(), IsLan, IsPresence);
+}
+
 
 void USteamGameInstance::DestroySession(FName SessionName)
 {
