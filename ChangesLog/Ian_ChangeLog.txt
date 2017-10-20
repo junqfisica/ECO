@@ -2,6 +2,17 @@
 
 
 
+Changes made to branch 4.16 on 2017/10/19
+
+
+- General:
+	
+	-Changed timer count to .01 in BP_PlayerBody. .03 made me feel sick from the shuttering. seems to have no issue with prrformance 
+	-BP_GEarth01 removed a pin that seemed to call an effect twice
+	-spent most of today working on new monastary in 3ds max 
+
+	
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/18
 
 
@@ -12,7 +23,7 @@ Changes made to branch 4.16 on 2017/10/18
 	-Modified Ui materials	
 	-Removed uneeded logic from Tut pawn that I put yesterday
 	-Changed flags and anims of tribune_BP
-	
+	-Worked on lighting in Tut level
 	
 ================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/17
