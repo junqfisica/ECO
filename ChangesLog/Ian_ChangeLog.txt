@@ -2,6 +2,18 @@
 
 
 
+
+
+Changes made to branch 4.16 on 2017/10/20
+
+
+- General:
+	
+	-added new temple assets. wokred on temple. its still a massive work in progress but its better then before
+	
+
+	
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/19
 
 
