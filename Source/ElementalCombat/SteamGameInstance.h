@@ -7,22 +7,22 @@
 #include "SteamGameInstance.generated.h"
 
 /**
-*
+*  FCustomBPSessionResults - wrapper struct for session results to be passed to BPs
 */
 USTRUCT(BlueprintType)
-struct FCustomBPSessionResults
+struct FCustomBPSessionResult
 {
 	GENERATED_USTRUCT_BODY()
 
-		FOnlineSessionSearchResult SessionResultInternal;
+	FOnlineSessionSearchResult SessionResultInternal;
 };
 
-/// These are delegates types for BP binding
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnFindSessionsSuccessful, TArray<FOnlineSessionSearchResult>, Results);
+/** Delegates to be implemented in BP */
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnFindSessionsSuccessful, const TArray<FCustomBPSessionResult>&, BPSessionResults);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnFindSessionsNotSuccessful);
 
 /**
- * 
+ *  USteamGameInstance - UGameInstance class to be used as base for BP GameInstance; has all session systems
  */
 UCLASS()
 class ELEMENTALCOMBAT_API USteamGameInstance : public UGameInstance
@@ -42,18 +42,20 @@ public:
 	FName ArenaMapName;
 
 	/** Map name to use in the DestroySession callback */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Network")
 	FName MainMenuMapName;
 
 	/** Map name to use in the DestroySession callback */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Network")
 	FName GameSessionName;
 
 	/**
 	* Delegates used in the callbacks of the OnlineSessionInterface; 
 	* bound in BPs
 	*/
+	UPROPERTY(BlueprintAssignable, Category = "Network")
 	FOnFindSessionsSuccessful OnFindSessionsSuccessfulDelegate;       /// Successful
+	UPROPERTY(BlueprintAssignable, Category = "Network")
 	FOnFindSessionsNotSuccessful OnFindSessionsNotSuccessfulDelegate; /// Not successful
 
 	/** Delegates for the callbacks of the OnlineSessionInterface */
@@ -71,8 +73,20 @@ public:
 	FDelegateHandle OnDestroySessionCompleteDelegateHandle; /// Destroy
 
 	/// Methods
-	USteamGameInstance(const FObjectInitializer& ObjectInitializer);
+	USteamGameInstance(const FObjectInitializer& ObjectInitializer); /// Contructor
 	
+	/// Accessor methods for FCustomBPSessionResult struct
+	UFUNCTION(BlueprintPure, Category = "Network")
+	static	int32 GetPingInMs(FCustomBPSessionResult Result) { return Result.SessionResultInternal.PingInMs; };
+
+	UFUNCTION(BlueprintPure, Category = "Network")
+	static	int32 GetMaxPlayers(FCustomBPSessionResult Result) { return Result.SessionResultInternal.Session.SessionSettings.NumPublicConnections; };
+
+	UFUNCTION(BlueprintPure, Category = "Network")
+	static int32 GetCurrentPlayers(FCustomBPSessionResult Result) {
+		return Result.SessionResultInternal.Session.SessionSettings.NumPublicConnections
+			- Result.SessionResultInternal.Session.NumOpenPublicConnections; };
+
 	/// Helper methods
 	/**
 	*   Function prints all session settings used to create a session
@@ -98,6 +112,20 @@ public:
 	*/
 	ULocalPlayer* const GetLocalPlayer();
 
+	/**
+	*   Function returns converted bool in to FString
+	*
+	*   @param		bBoolToConvert		boolean to convert to FString
+	*/
+	FString BoolToFString(bool bBoolToConvert);
+
+	/**
+	*   Function packs the FOnlineSessionSearchResult list into a list of FCustomBPSessionResult
+	*
+	*   @param		Results		List of session results
+	*/
+	const TArray<FCustomBPSessionResult> PackageSessionResults(TArray<FOnlineSessionSearchResult> Results);
+
 	/// Session methods
 	/**
 	*   Function creates a session using the OnlineSessionInterface
@@ -118,6 +146,15 @@ public:
 	*	@param bIsPresence are we searching presence sessions
 	*/
 	void FindSessionsInternal(TSharedPtr<const FUniqueNetId> UserId, bool bIsLAN, bool bIsPresence);
+
+	/**
+	*	Joins a session via a search result
+	*
+	*	@param SessionName name of session
+	*	@param SearchResult Session to join
+	*	@return bool true if successful, false otherwise
+	*/
+	bool JoinSessionInternal(TSharedPtr<const FUniqueNetId> UserId, FName SessionName, const FOnlineSessionSearchResult& SearchResult);
 
 	/// Callbacks for the OnlineSessionInterface
 	/**
@@ -184,4 +221,7 @@ public:
 	*/
 	UFUNCTION(BlueprintCallable, Category = "Network")
 	void FindGames(bool IsLan, bool IsPresence);
+
+	UFUNCTION(BlueprintCallable, Category = "Network")
+	void JoinGame(FName SessionName, FCustomBPSessionResult Result);
 };
