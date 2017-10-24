@@ -1,9 +1,17 @@
 
+Changes made to branch 4.16 on 2017/10/24
 
 
+- General:
+	
+	-Added polish and new art assets to Fightarena, tut level, and TrainingArena
+	-Created new Asset BP_BreakableTile  this adds a cool effect when summoning barriers 
+	-Add new character game assets "Arashi Character"  ====Thiago==== we should probaly talk before we add this guy to the BP
+	-Added all around polish 
+	
 
-
-
+	
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/20
 
 
