@@ -1,4 +1,18 @@
 
+Changes made to branch 4.16 on 2017/10/26
+
+
+- General:
+	
+	-Added logic and assets to AI pawn to randomize outfits, we can change this later to be character specific.  female only so far
+	-added new parameters to material of  character to change for diffrent elements
+	-added logic in BP_barrier for health bars 
+	-worked on fire ball PFX
+	-all around polish
+	
+
+	
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/24
 
 
