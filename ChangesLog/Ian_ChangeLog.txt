@@ -1,4 +1,19 @@
 
+Changes made to branch 4.16 on 2017/10/27
+
+
+- General:
+	
+	-Added new BP called BP_RockBarrierDM  this added to the destuction effect of the rock barrier. this is only visual have no collision so its ok for MP
+	-Added logic in BP_RockBarrier to get BP_RockBarrierDM  to work.
+	-worked on firebal PFX
+	-Added explotion to fireball impact.
+	-all around polish
+
+	
+
+	
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/26
 
 
