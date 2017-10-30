@@ -1,3 +1,55 @@
+Changes made to branch 4.16 on 2017/10/30:
+
+
+- General: 
+
+	Few sound's attenuation ajustments.
+
+- Important: At project - > settings -> rendering. I changed the anti-aliasing method from TAA to MSAA. This method is way more efficient in 
+	terms of performance. Although, some of the vegetation look a bit strange. 
+	For more detail check: https://docs.unrealengine.com/latest/INT/Engine/Performance/ForwardRenderer/index.html 
+
+- BP_Barrier:
+
+	Changed the scale of SM_BackGroundHealth from 1,1,1 to 1,0.8,0.8. Solve problem with red bar being overlayer the green one when set scale.
+	The event SetPercent is now a Multicast RPC and was renamed to ClientSetPercent.
+
+
+- BP_EarthBarrier:
+
+	On event Destroy first check the life of barrier if bigger than zero don't spawn the RockBarrierDM. Solve the inssue when barrier was being destroyed 
+	by the time out.
+	Added an event ClientSpwanBarrierDestroction to spawn BP_RockBarrierDM, which is a multicast RPC.
+
+- BP_3d_HealthBar:
+
+	Added the no Qi sound and animate the scale when player don't have engouht Qi.
+
+- MPMotionControllerPawn:
+
+	Added the new 3d health and Qi bar on the MP.
+	Removed the 2d widget for health and Qi.
+
+- BP_MPMotionController:
+
+	Connected the element feedback to BP_3d_HealthBar.
+
+- BP_MotionControllerPawnTutorial:
+
+	Fixed inssue with the hand instructions on advanced attack.
+
+- BP_AIEnemy:
+
+	Added a new difuclt level for AI called TutorialFirstFight.
+
+- BP_BasicAttack:
+
+	When it destroy barriers the velocity now is kept the same. 
+
+- BP_AdvancedAttack:
+
+	When it destroy barriers the velocity now is kept the same.
+===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/19:
 
 - General: 
