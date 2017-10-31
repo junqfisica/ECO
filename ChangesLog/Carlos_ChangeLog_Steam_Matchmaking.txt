@@ -1,0 +1,56 @@
+Changes made to branch SteamMatchmaking on 2017/10/31:
+
+Note: this is a branch specific change log; this way when merging these changes can be chronologically added correctly and avoids merge mismatches in these files.
+
+General:
+- Added C++ header files SteamGameInstance.h and MainMenu.h; SteamGameInstance.h contains dynamic multicast delegates, the struct FCustomBPSessionResult and the class USteamGameInstance.
+- Added blueprint class BP_SteamGameInstance, derived from C++ class USteamGameInstance.
+- Added blueprint widget class QuickMatchMenu.
+- Added matchmaking functionality to the game (note: while a QuickMatchMenu was added, it is not functional and prone to breaking; matchmaking functionality was 
+  added to blueprint widget class ServerMenu)
+- Modified how the game quits; now it clean whatever sessions still exist before quitting.
+
+C++ classes:
+- USteamGameInstance:
+      Added variables:
+        Private:
+          Not exposed to BP:
+              SessionSettings => TSharedPtr pointing to FOnlineSessionSettings
+              SessionSearch => TSharedPtr pointing to FOnlineSessionSearch
+              SessionNames => TArray of FNames
+        Public:
+          Category Network:
+              ArenaMapName => FName (default set by constructor = ""); blueprint read write variable
+              MainMenuMapName => FName (default set by constructor = ""); blueprint read write variable
+              GameSessionName => FName (default set by constructor = ""); blueprint read write variable
+              bIsQuitting => boolean (default set by constructor = false); blueprint read write variable
+              bIsMatchMaking => boolean (default set by constructor = false); blueprint read write variable
+              WhoCalled => FString (default set by constructor = ""); blueprint read write variable
+              OnCreateSessionSuccessfulDelegate => FOnCreateSessionSuccessful custom delegate; blueprint read write variable; note: not used right now
+              OnFindSessionsSuccessfulDelegate => FOnFindSessionsSuccessful custom delegate; blueprint read write variable
+              OnFindSessionsNotSuccessfulDelegate => FOnFindSessionsNotSuccessful custom delegate; blueprint read write variable
+              OnJoinSessionSuccessfulDelegate => FOnJoinSessionSuccessful custom delegate; blueprint read write variable; note: not used right now
+              OnDestroySessionSuccessfulDelegate => FOnDestroySessionSuccessful custom delegate; blueprint read write variable; note: not used right now
+          Not exposed to BP:
+              OnCreateSessionCompleteDelegate => FOnCreateSessionCompleteDelegate delegate (IOnlineSession interface)
+              OnUpdateSessionCompleteDelegate => FOnUpdateSessionCompleteDelegate delegate (IOnlineSession interface); note: not used right now
+              OnStartSessionCompleteDelegate => FOnStartSessionCompleteDelegate delegate (IOnlineSession interface)
+              OnFindSessionsCompleteDelegate => FOnFindSessionsCompleteDelegate delegate (IOnlineSession interface)
+              OnCancelFindSessionsCompleteDelegate => FOnCancelFindSessionsCompleteDelegate delegate (IOnlineSession interface); note: not used right now
+              OnJoinSessionCompleteDelegate =>FOnJoinSessionCompleteDelegate delegate (IOnlineSession interface)
+              OnRegisterPlayersCompleteDelegate => FOnRegisterPlayersCompleteDelegate delegate (IOnlineSession interface); note: not used right now
+              OnDestroySessionCompleteDelegate => FOnDestroySessionCompleteDelegate delegate (IOnlineSession interface)
+              OnCreateSessionCompleteDelegateHandle => FDelegateHandle handle
+              OnUpdateSessionCompleteDelegateHandle => FDelegateHandle handle; note: not used right now
+              OnStartSessionCompleteDelegateHandle =>  FDelegateHandle handle
+              OnFindSessionsCompleteDelegateHandle =>  FDelegateHandle handle
+              OnCancelFindSessionsCompleteDelegateHandle =>  FDelegateHandle handle; note: not used right now
+              OnJoinSessionCompleteDelegateHandle => FDelegateHandle handle
+              OnRegisterPlayersCompleteDelegateHandle =>  FDelegateHandle handle; note: not used right now
+              OnDestroySessionCompleteDelegateHandle =>  FDelegateHandle handle
+      Added constructor USteamGameInstance(const FObjectInitializer& ObjectInitializer); calls the parent contructor and initializes the Category Network 
+       variables (ignores the delegates in this category); also binds the IOnlineSession delegates while ignoring the handles
+      Added static accessor methods FString GetSessionName(FCustomBPSessionResult Result), int32 GetPingInMs(FCustomBPSessionResult Result), int32 GetMaxPlayers(FCustomBPSessionResult Result) 
+       and int32 GetCurrentPlayers(FCustomBPSessionResult Result); these are all blueprint pure methods that access info inside the FOnlineSessionSearchResult wrapped by the 
+       struct FCustomBPSessionResult.
+      
