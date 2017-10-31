@@ -1,4 +1,20 @@
 
+
+
+
+Changes made to branch 4.16 on 2017/10/30
+
+
+- General:
+	
+	-Added new blue PFX for super fire ability. logic is in Fire BP. still a work in progress
+	-Worked on foliage texture setting trying to get them to look decent with new rendering
+	-made wind barrier last long but will have to figure out a way to keep it persetant or have a wind explotion PFX 
+	- all around polish
+	
+
+	
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/27
 
 
