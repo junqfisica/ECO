@@ -1,3 +1,28 @@
+Changes made to branch 4.16 on 2017/11/01:
+
+- Note for Ian: I have change the rotation rule on attach to relative for the basic attacks. This way the your pivot arrow at BP_EarthBall is always 
+facing the hand direction. Now you just need to rotate your SMs to face it as well. I let the arrow visible for you to see it better. For the left hand 
+just rotating will not make the trick since left - right hands are mirror. My suggestion here is to make a trick, instead of doing the way you did with many small pices, 
+transform all this into a single SM (ue4 has a tool to do that). So the first stage u spawn the small pices toggeter in a fast way (just for visual), once this is done u replace it by the single SM (actually the SM will be there already so u can just make it invible by default then when the EFX is finish u make it visible.). I think in this way the left hand will work since the scale should be invert, if not u just need to invert the z scale from x to -x.  
+
+
+- BP_MPMotionController:
+
+	The attachment for basic attack now uses a rotation rule relative.
+
+- BP_MotionController:
+	
+	The attachment for basic attack now uses a rotation rule relative.
+
+- BP_BasicAttack:
+
+	Trying to make lag less visible in MP.
+	Added an event called ClientChangeAcceleration, this is a multicast RPC and it change the velocity locally. 
+	The parameter ProjectileTarget is now replicate.
+	Knowing inssue: If the lag is bigger than 200ms the client will not be able to shoot spells. This happen because the time beteween 
+	shoot and recharge is 200ms, therefore, if the lag is bigger than it the spells collide. 
+
+===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/30:
 
 
