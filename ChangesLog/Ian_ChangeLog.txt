@@ -1,6 +1,20 @@
 
 
 
+Changes made to branch 4.16 on 2017/10/31
+
+
+- General:
+	
+	-Added new floor plant to blend grass, worked on bush1 aswell 
+	-added new plant to all levels 
+**Thiago-started to work on earth fist but I cant get the Earthball to have the same rotation. **Thiago** can you help me align the "pivotpoint" arrow componet with the players hand in BP_EarthBall?
+	-all around polish
+
+	
+
+	
+================================================================================================================================================
 
 Changes made to branch 4.16 on 2017/10/30
 
