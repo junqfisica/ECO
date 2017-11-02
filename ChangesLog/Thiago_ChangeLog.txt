@@ -1,3 +1,17 @@
+Changes made to branch 4.16 on 2017/11/02:
+
+- General: 
+
+	Critical merger with Carlos version and the current version. 
+	Implemented almost all the widgets and change the game instance where necessary, some bugs may still happen (need to test the whole game).
+
+- Importante for Ian:
+
+	We add new c++ code. It can be trick sometimes for the project "see" this new implementation. You may need to compile the project using Visual Studio
+	if you open your project and it don't find the new c++ classes. Since this is a game instance class you can have critical erros before the project 
+	recognize it. If you have this problem give me a call. 
+
+===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/01:
 
 - Note for Ian: I have change the rotation rule on attach to relative for the basic attacks. This way the your pivot arrow at BP_EarthBall is always 
