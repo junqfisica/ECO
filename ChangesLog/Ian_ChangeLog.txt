@@ -1,6 +1,17 @@
 
+Changes made to branch 4.16 on 2017/11/1
 
 
+- General:
+	
+	-Added new skeleton mesh and logic to BP_EarthBall
+	-Added new destruction FX to barriers. still a work in progress
+	-All around polish
+
+	
+
+	
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/10/31
 
 
