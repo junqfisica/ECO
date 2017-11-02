@@ -1,3 +1,23 @@
+Changes made to branch SteamMatchmaking on 2017/11/01:
+
+Note: this is a branch specific change log; this way when merging these changes can be chronologically added correctly and avoids merge mismatches in these files.
+
+Blueprint classes:
+- BP_SteamGameInstance:
+      Added variables:
+        Default:
+            IsVR_NotActive => boolean (determines if we are using a menu which is VR friedly or not; default = false)
+      Modified all events Show<some menu>Menu to take a boolean IsNotVR which determines if the widget should be added to viewport or not (adds it if true).
+      Added a note for Thiago regarding the important FName variables inherited from USteamGameInstance that are exposed to BP.
+
+- MPMotionControllerPawn:
+      Added overrided input event for D key; calls the BP_SteamGameInstance event DetroySessionCaller to destroy the session from the multiplayer match (this is for testing only).
+
+Maps:
+- NoVR_MainMenu:
+      Modified overrided event BeginPlay; now also sets BP_SteamGameInstance variable IsVR_NotActive to true.
+
+===================================================================================================================================================================
 Changes made to branch SteamMatchmaking on 2017/10/31:
 
 Note: this is a branch specific change log; this way when merging these changes can be chronologically added correctly and avoids merge mismatches in these files.
