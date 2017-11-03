@@ -1,3 +1,48 @@
+Changes made to branch 4.16 on 2017/11/03:
+
+- Extreme Important:
+
+	Today I had a huge problem to buil the project. The problem was at the childActor component at the MPMotionControlPawn. I still have no idea why 
+	this happened. 
+	Here is some tread about the topic: https://answers.unrealengine.com/questions/604285/416-updated-project-crashes-skel-linkerplaceholder.html
+	I solved the problem now, but let's be careful with this component because it seems very instable. 
+
+- For Ian: 
+
+	Trying to debug the build I also realise that we have some materials fails. I sent you a screen shoot at slack.
+
+- For Carlos: 
+
+	I replied your questions at the widgets.
+
+- WBP_MainNetworkVRMenu:
+
+      	Modified overrided event OnClicked for QuitButton; now when vr is active, calls DestroySessionCaller. Carlos, check if this is right!! 
+
+- WBP_CustomMenu:
+
+	Added a quit button to leave the game. Added the same logic carlos was using to quite the game.
+
+- BP_MP_MPMotionControllerPawnMenu:
+
+	Remaned it to MPMotionControllerPawnMenu, just to be consistent with the rest. I was getting confuse here. :)
+
+- BP_MotionController:
+
+	Added tree new Events: StartAttackFeedback, UpdateAttackFeedback and ClearAttackFeedback. This call the logic Ian did for showing the player 
+	how many basic attacks they still have. I created this events to be compatible with the MP implementation. Since, the feedbacks must be a 
+	multicast or Run on owning RPC.
+
+- BP_3D_HealthBar:
+
+	Organized and compacted the new events Ian created for the attack feedback. I removed right and left events. It now gets the enumerator hand as input 
+	and deals with that. This way at BP_MotionController we don't need two calls.
+
+- BP_EarthBall:
+
+	Added some MP logic to what Ian did. I still need to run more tests on it and make few more fixes problably. 
+
+===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/02:
 
 - General: 
