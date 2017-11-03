@@ -1,4 +1,19 @@
 
+Changes made to branch 4.16 on 2017/11/2
+
+
+- General:
+	
+	-Added indicator for how many basic attacks you have left.
+	-Started to add polsih to the foliage and grass
+	-Updated all levels with new grass
+	
+
+
+	
+
+	
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/1
 
 
