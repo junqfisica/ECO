@@ -1,3 +1,28 @@
+Changes made to branch 4.16 on 2017/11/06:
+
+- WBP_GameOver:
+
+	OnClike at button2 I rewired the open level after destroysection. Before the button was not working for the single player.
+
+- MPMotionControllerPawn:
+
+	Added the PlayerBody at multiplayer pawn. Spawn on server and replicate it. 
+	UpdateServer is now being called every 0.01secs, instead of 0.1secs.
+
+- MotionControllerPawn:
+
+	Removed the PlayerBody from single player. This should be used only by MP.
+
+- BP_MPMotionController:
+
+	Added tree new Events: ClientsStartAttackFeedback, ClientsUpdateAttackFeedback and ClientsClearAttackFeedback. This call the logic Ian did for showing the player 
+	how many basic attacks they still have.
+
+- BP_GFire01:
+
+	Added and RPC event called ServerCancelAttack. This makes the attack shirink before destroy it, when the player moves his hands appart.
+
+===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/03:
 
 - Extreme Important:
