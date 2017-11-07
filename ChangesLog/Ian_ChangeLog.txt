@@ -1,4 +1,17 @@
 
+
+Changes made to branch 4.16 on 2017/11/6
+
+
+- General:
+	
+	-Added  a first pass of a new Landscape material. still needs alot of work. and is only added to FightArena 
+	-polish to each level
+	-optimization 
+	-fiddled with Super fire attack
+
+	
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/2
 
 
@@ -7,11 +20,6 @@ Changes made to branch 4.16 on 2017/11/2
 	-Added indicator for how many basic attacks you have left.
 	-Started to add polsih to the foliage and grass
 	-Updated all levels with new grass
-	
-
-
-	
-
 	
 ================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/1
