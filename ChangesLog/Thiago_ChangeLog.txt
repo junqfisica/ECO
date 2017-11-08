@@ -1,3 +1,29 @@
+Changes made to branch 4.16 on 2017/11/08:
+
+
+- BP_TargetPractice:
+
+	Added two interfaces to it: 
+		TakeDamage interface: This interface implement the event OnDamage. This way you don't need to check for hit here. 
+		IsTargetable: This interface implement a function GetTargetComponent. This function should return a SM.
+
+	Added a SM called SMTarget. This is used for the target system. Collison was set to none and hiddien in the game. 
+	At BeginPlay added a node that gets the player pawn and sets BP_TargetPractice as his target.
+
+- BP_TargetSpawner:
+
+	Added a parameter SpawnTransform.
+	Reorganize the event StartSpawning. Fixes the error we were getting of null references. 
+
+- BP_Barrier:
+
+	Trying to make the growth more smooth for MP.
+
+- BP_FireShield:
+
+	Started to test a drag system. For now only works on Fire shield for single player hands.  
+
+===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/06:
 
 - WBP_GameOver:
