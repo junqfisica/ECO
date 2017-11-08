@@ -1,6 +1,21 @@
 
+Changes made to branch 4.16 on 2017/11/7
 
-Changes made to branch 4.16 on 2017/11/6
+
+- General:
+	-Added new landscape material to other levels 
+	
+	-Created new Blueprints called BP_TargetPractice and BP_TargetSpawner
+
+	BP_TargetPractice is the target that is used in the Training Arena level.. **Thiago** I was a little lost on how to get the attack to aim
+			   for the BP_TargetPractice actor but if you play the training Arena Level you will see what is intended. I was wondering 
+			   if you could make the attack aim for the BP
+
+	BP_TargetSpawner is what controls the spawning and location of spawns.
+	
+	- added logic to TrainingArena Level BP to start the BP's listed above
+	
+================================================================================================================================================Changes made to branch 4.16 on 2017/11/6
 
 
 - General:
