@@ -551,13 +551,12 @@ void USteamGameInstance::OnDestroySessionComplete(FName SessionName, bool bWasSu
 				/// when successful, make sure we won't attemp to destroi this session again
 				SessionNames.Remove(SessionName);
 
-				/// In BPs one has to block any functionality from executing when quitting the game
-				///OnDestroySessionSuccessfulDelegate.Broadcast(bIsQuitting);
-
 				/// Go to main menu when not quitting
 				if (!bIsQuitting)
 				{
-					UGameplayStatics::OpenLevel(GetWorld(), MainMenuMapName, true);
+					///UGameplayStatics::OpenLevel(GetWorld(), MainMenuMapName, true);
+					/// In BPs one has to block any functionality from executing when quitting the game
+					OnDestroySessionSuccessfulDelegate.Broadcast(bIsQuitting);
 				}
 			}
 			else
@@ -566,10 +565,6 @@ void USteamGameInstance::OnDestroySessionComplete(FName SessionName, bool bWasSu
 				GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, FString::Printf(TEXT("OnDestroySessionComplete was not successful.")));
 			}
 		}
-
-		BoolValue = BoolToFString(bIsQuitting);
-		UE_LOG(LogTemp, Error, TEXT("bIsQuitting = %s"), *BoolValue)
-		GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, FString::Printf(TEXT("bIsQuitting = %s"), *BoolValue));
 
 		/// Session cleanup before quitting
 		if (bIsQuitting)
