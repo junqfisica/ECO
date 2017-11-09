@@ -1,3 +1,30 @@
+Changes made to branch 4.16 on 2017/11/09:
+
+- Important note:
+
+	Some c++ code were modifed. So, before working on the project compile it. You can compile using the compile button at the editor. 
+
+- General:
+
+	Default map at the project settings was set back as SwicthLevels. Now, SwicthLevels deals when the player must travel to LogoIntro Map.
+	Some changes on the DefaultEngine.ini file: Changed some configurations as made by the Proteus template for VR.
+
+- BP_SteamGameInstance:
+
+	At the Event NetworkError added a logic to set the LevelToLoad = MenuRoom, when connection is lost.
+	Added a bool parameter called isIntroVizualized. This is used by the SwicthLevel to know where to travel.
+
+- BP_Shield:
+
+	Added a Event StartDrag. This is used to cause a delay between the shiled and the player's hand, given the sensation of drag.
+	Added a bool parameter shouldDrag. This is false by default on the parent. If you wish the child to drag this must be set as true.
+	Added a float parameter DragTime. This is the time in wich the shiled should lack behind. The default value is 0.1s, the range goes from 0.01 - 1s.
+
+- BP_Barrier:
+
+	Added a RPC event ClientStartGrowBarrier. Trying to make barriers grow smoother at client. This event is used only by the MP pawn.
+
+===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/08:
 
 
