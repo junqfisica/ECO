@@ -1,4 +1,17 @@
 
+
+Changes made to branch 4.16 on 2017/11/8
+
+
+- General:
+	-added polish to grass assets and rebaked lighting 	
+	-added sound cues for target BP's
+	-created new BP called BP_TrainingMaster this is mainly just visual and a prototype of what we could to for NPC's . only exists in TrainingArena as of now
+	-Added delay in BP_targetSpawner 
+	-Added logic to TrainingArena level BP so make whats listed above work. 
+	-Created new PFX for BP_TrainingMaster
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/7
 
 
