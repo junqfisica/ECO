@@ -1,3 +1,24 @@
+Changes made to branch 4.16 on 2017/11/09:
+
+General:
+- Added input extra input for Action Mapping StartGame (left mouse button).
+
+Blueprint classes:
+- Lobby_GM:
+      Added variables:
+        Default:
+            LoadedList => TArray of booleans (one boolean for each PC in the PlayerControllerList, used to avoid calling a rpc more than once)
+            InProgressTimer => timer handle (holds the timer set in InProgressEvent)
+      Modified event InProgressEvent; now sets a timer that runs 10 times per second checking if every players' pawns have been fully loaded; when it is, just unsilence that player.
+      Modified event PostMatchEvent; now waits 5 seconds before executing so that if two players enter the map too close to each other they are still 
+       loaded correctly; also clears InProgressTimer.
+      Modified event ResetMatch; now no longer waits 10 seconds before initiating ServerTravel to MultiplayerArena.
+      Modified event ResetGM; now destroys the PCs' pawns before clearing PlayerControllerList.
+
+- BP_SteamGameInstance:
+      Modified overrided event NetworkError; no longer calls DestroySessionCaller after macro DisplayErrorMessage.
+
+===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/03:
 
 General:
