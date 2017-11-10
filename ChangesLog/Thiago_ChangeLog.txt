@@ -1,3 +1,20 @@
+Changes made to branch 4.16 on 2017/11/10:
+
+
+BP_TrainingMaster:
+
+	Changed the SK to SK_Arashi_Color01.
+	Set all SM to colisioness.
+
+BP_MotionControllerPawnTutorial:
+
+	Removed set EnemyTarget after Spawn BP_TutorialTarget. Works better after the changes Ian did.
+
+Dummy_BP:
+
+	Added a Hit event to make the AI fly away then spawn a new one. 
+
+===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/09:
 
 - Important note:
