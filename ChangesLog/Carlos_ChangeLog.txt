@@ -1,3 +1,31 @@
+Changes made to branch 4.16 on 2017/11/10:
+
+Notes
+- New C++ files added to the project. Must be compiled again.
+
+General:
+- Added C++ header file ECOBasePlayerController.h, which contains the class AECOBasePlayerController.
+
+C++ classes:
+- AECOBasePlayerController: will write a wiki for it ASAP.
+
+Bluerpint classes:
+- Dummy_BP: 
+      Modified PlayerBoddy component; no longer visible when in play.
+
+- MotionControllerPawn:
+      Modified overrided event InputAxisMouseX; it is now enabled again.
+      Modified overrided event InputAxisMouseY; it is now enabled again.
+
+- MPMotionControllerPawn:
+      Modified DefaultSceneRoot component; it is movable now.
+
+- Lobby_GM:
+      Modified overrided event HandleStartingNewPlayer; while disabled at the moment, it will set AECOBasePlayerController boolean variable bIsInLobby to true.
+
+- MotionController_PC: now child of C++ class AECOBasePlayerController.
+
+===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/09:
 
 General:
@@ -58,7 +86,7 @@ Maps:
 Changes made to branch SteamMatchmaking on 2017/10/31:
 
 General:
-- Added C++ header files SteamGameInstance.h and MainMenu.h; SteamGameInstance.h contains dynamic multicast delegates, the struct FCustomBPSessionResult and the class USteamGameInstance.
+- Added C++ header files SteamGameInstance.h and MainMenuGM.h; SteamGameInstance.h contains dynamic multicast delegates, the struct FCustomBPSessionResult and the class USteamGameInstance.
 
 - Added blueprint class BP_SteamGameInstance, derived from C++ class USteamGameInstance.
 
