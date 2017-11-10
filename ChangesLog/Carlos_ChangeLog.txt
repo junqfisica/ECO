@@ -1,5 +1,16 @@
 Changes made to branch 4.16 on 2017/11/10:
 
+Blueprint classes:
+- Lobby_GM:
+      Modified event ResetMatch; now bound event Restart calls the Delay node before calling the event ResetGM.
+
+- MultiplayerGM:
+      Modified event ResetMatch; now bound event Restart calls the Delay node before calling the event ResetGM.
+      Modified event ResetGM: now destroys the pawn controlled by a player's PC before clearing PlayerControllerList.
+
+===================================================================================================================================================================
+Changes made to branch 4.16 on 2017/11/10:
+
 Notes
 - New C++ files added to the project. Must be compiled again.
 
