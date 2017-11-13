@@ -1,3 +1,35 @@
+Changes made to branch 4.16 on 2017/11/13:
+
+- General:
+
+	Added the credits scene at the menu room.
+
+- MPMotionControllerPawn:
+
+	Events SwapToFire, SwapToWater, SwapToEarth, SwapToAir, left and right, are now multicast RPC. This solve problem of server-client not 
+	updating its element feedback. 
+	Removed the 180 degre rotation for Vive at the BeginPlay.
+
+
+- MotionControllerPawnTutorial:
+
+	Double the time for the last fight after advanced attacks.
+	Double Qi regeneration.
+	Some small polishes on tutorial.	
+
+- MotionControllerPawn:
+
+	Removed the 180 degre rotation for Vive at the BeginPlay.
+
+- BP_GAir01:
+
+	Removed the hand velocity direction to rotate the BP_AirAttackTail. It now uses the right direction from the arrow component attach to hand.
+
+- BP_AdvancedAttacks:
+
+	Added the same logic that is on basic attacks for make mp more smooth.
+
+===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/10:
 
 
