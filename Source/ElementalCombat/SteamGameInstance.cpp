@@ -162,7 +162,7 @@ bool USteamGameInstance::CreateSessionInternal(TSharedPtr<const FUniqueNetId> Us
 		SessionSettings->bAllowJoinViaPresenceFriendsOnly = false;
 
 		SessionSettings->Set(SETTING_MAPNAME, ArenaMapName.ToString(), EOnlineDataAdvertisementType::ViaOnlineService);
-		SessionSettings->Set(FName("SessionName"), SessionName.ToString(), EOnlineDataAdvertisementType::ViaOnlineService);
+		SessionSettings->Set(FName("SessionName"), SessionName.ToString(), EOnlineDataAdvertisementType::ViaOnlineServiceAndPing);
 
 		PrintSessionSettings(*SessionSettings);
 

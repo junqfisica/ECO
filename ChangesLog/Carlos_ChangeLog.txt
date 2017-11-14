@@ -1,5 +1,24 @@
 Changes made to branch 4.16 on 2017/11/10:
 
+Note: There were changes to C++ code. COMPILE AFTER PULLING THIS COMMIT.
+
+General:
+- Voice added to the project. Done using OnlineSubsystem variables (in DefaultEngine.ini file) bHasVoiceEnabled=true, PollingIntervalInMs=20 and 
+   VoiceNotificationDelta=0.2; Voice variable bEnabled=true; GameSession variable (in Defaultgame.ini file) bRequiresPushToTalk=false.
+
+Blueprint widgets:
+- ServerRow_VR:
+      Modified function pure GetServerName; now checks if BP_SteamGameInstance variable EnableLan is true. If true, returns "LanGame" as the session name, else, uses the original algorithm.
+      Modified overrided event OnCliecked for ServerSelectionButton; now checks if BP_SteamGameInstance variable EnableLan is true. If true, sets USteamgameInstance variable
+       GameSessionName = "LanGame". If false, uses the original algorithm.
+
+- WBP_HostMenuVR:
+      Modified overrided event OnClicked for AcceptButton; now calls BP_SteamGameInstance event HostGame passing "LanGame" as the server name directly. 
+       This is now the default name for Lan sessions.
+
+===================================================================================================================================================================
+Changes made to branch 4.16 on 2017/11/10:
+
 Blueprint classes:
 - Lobby_GM:
       Modified event ResetMatch; now bound event Restart calls the Delay node before calling the event ResetGM.
