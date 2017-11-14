@@ -1,3 +1,21 @@
+Changes made to branch 4.16 on 2017/11/14:
+
+- General:
+
+	Added new sounds to barriers.
+	Added new widget WBP_Options. Make sound Settings.
+	Added new blueprint, BP_OptionsMenu. Holds the widget sound settings.
+
+- MyFunctions:
+
+	Added a new function for UI. Name: HighlightText. This function recives two parameters Text and OutlineSize. This function can be called from any actor.
+
+- BP_SteamGameInstance:
+
+	Added a structure PlayerPreferences. This will be use to keep and track data from player. Right now it just uses sound data.
+
+
+===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/13:
 
 - General:
