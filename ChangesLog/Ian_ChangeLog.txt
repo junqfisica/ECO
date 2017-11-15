@@ -1,5 +1,18 @@
+Changes made to branch 4.16 on 2017/11/14
 
 
+- General:
+	-Added/Bought "particle text plugin" from marketplace for in game text. I am still learning all its parameters and modules but I think its off to a good start. we could also use this to show damage with text like boarder lands
+		Url of plugin : https://www.unrealengine.com/marketplace/particle-text
+	-Created / Implemented new Particle Text assets to work with previous logic in "PanelText_BP and MP_PanelText_BP"
+	- The EnemyAI BP now works with Female and Male SKM just waiting on Tommy for back story on Characters and names. 
+	-polish to all assets refrenced by BP's listed above
+	-added foliage and polish to MP level
+
+	IMPORTANT:
+Scared to touch MP logic... but the new Particle Text does spawn in to correct location when playing MP in MP level
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/8
 
 
