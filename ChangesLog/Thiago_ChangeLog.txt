@@ -2,7 +2,11 @@ Changes made to branch 4.16 on 2017/11/15:
 
 - Very Import: Ian I had to reverce your last commit. Please, don't add plugin from marketplace without consult us first, manly if is a buy one. 
 	I can't open the project without the plugin. Which means everyone in the project need to buy it. Also, plugins from marketplace can be very trick to be updated.
-	PS: You can copy the version u worked on, then migrate your changes that are not related with this plugin to the project.    
+	PS: You can copy the version u worked on, then migrate your changes that are not related with this plugin to the project. 
+
+- General:
+
+	Redesing all the UI layout.    
 
 ===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/14:
