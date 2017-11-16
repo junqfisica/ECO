@@ -1,5 +1,21 @@
+Changes made to branch 4.16 on 2017/11/15
 
 
+- General:
+	-Now Enemy AI can randomly changes from male to female and as you get higher in rounds the enemy wheres more armor. 	
+	-Added new Wiget/font to the Panel BP
+	-PanelText_BP and MP_PanelText_BP now have new Wiget that allows for better Front
+	-Small optimzation on fire barrier and fire ball
+	-Created new Materials for diffrent "looks"
+	-Talked to Carlos and made all the new Font work in MP
+
+Important
+
+	-In the PanelText_BP I cant figure out why after you win one match it becomes visable 1 sec to early.   not the worst but maybe you can fix you real fast?
+	Repoduce By: win a match and wait for text
+
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/8
 
 
