@@ -1,3 +1,48 @@
+Changes made to branch 4.16 on 2017/11/17:
+
+Note: There were changes to C++ code. COMPILE AFTER PULLING THIS COMMIT.
+
+General:
+- Added header file ECOPlayerStateBase.h, containing the C++ class AECOPlayerStateBase. This class is to be used as the basis for every player 
+   state that requires custom behavior beyond what BPs provide.
+
+- [1] Added the ability to host a match even if BP_SteamGameInstance variable EnableLan is set to false.
+
+- [2] Corrected a bug when a client player left the Lobby, his hands remained for the server to see.
+
+- [3] Corrected a bug introduced by a function of AECOPlayerStateBase.
+
+C++ classes:
+- AECOPlayerStateBase: I swear I will write that goddamn Wiki! Sorry for the delay.
+
+Blueprint classes:
+- MotionController_PlayerState:
+      Modified overrided event BeginPlay; no longer call AECOPlayerStateBase function SetSessionName. [3]
+
+- MPMotionControllerPawn:
+      Added overrided event Unpossessed; now destroys the LeftController and RightController references. This Clears the hands when a pawn is no 
+       longer under the control of a controller. [2]
+
+- BP_MPMotionController:
+      Modified overrided event BeginPlay; now binds the delegate OnDestroyed to an event that destroys the ElementFeedback reference. This clears 
+       the element feedback when the pawn is destroyed. [2]
+
+Blueprint widgets:
+- WBP_GameOver:
+      Modified overrided event OnClicked for Button1; now sets the variable ReadyToRestartText to "Ready...Loading..." instead of "Ready".
+
+- WBP_HostMenuVR:
+      Added variables:
+        Default:
+            SessionName => FString (contains the name of the session being created; default = "LanGame") [1]
+      Added function CreateSessionNameMessage, category Default; this function takes a prefix and creates a session name message to be displayed in UserServerName, also sets SessionName. [1]
+      Modified overrided event Construct; now sets the UserServerName initial text to "Server: <SessionName>", where SessionName is a concatenated prefix 
+       "ECO" with a random number or is set to "LanGame". [1]
+      Modified overrided event OnClicked for AcceptButton; when calling BP_SteamGameInstance event HostGame, passes SessionName as the name of the server. [1]
+
+- WBP_MainNetworkVRMenu: IsLanEnable is always set to true and the HostButton visibility is always set to visible [1]
+
+===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/10:
 
 Note: There were changes to C++ code. COMPILE AFTER PULLING THIS COMMIT.
