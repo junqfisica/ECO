@@ -1,4 +1,4 @@
-Changes made to branch 4.16 on 2017/11/17:
+Changes made to branch 4.16 on 2017/20/17:
 
 Note: There were changes to C++ code. COMPILE AFTER PULLING THIS COMMIT.
 
@@ -55,7 +55,7 @@ Blueprint classes:
       Modified event ResetGM; no longer resets InvertedIterator.
 
 ===================================================================================================================================================================
-Changes made to branch 4.16 on 2017/11/17:
+Changes made to branch 4.16 on 2017/16/17:
 
 Note: There were changes to C++ code. COMPILE AFTER PULLING THIS COMMIT.
 
