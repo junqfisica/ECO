@@ -1,3 +1,14 @@
+Changes made to branch 4.16 on 2017/11/21:
+
+- General: 
+
+	Tested carlos changes, all seems to work fine now.
+
+- WBP_GameOver:
+
+	Added a field to show the name of the game created. This is only visible at the looby level.
+
+===========================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/15:
 
 - Very Import: Ian I had to reverce your last commit. Please, don't add plugin from marketplace without consult us first, manly if is a buy one. 
