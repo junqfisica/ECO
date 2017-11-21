@@ -3,6 +3,63 @@ Changes made to branch 4.16 on 2017/11/17:
 Note: There were changes to C++ code. COMPILE AFTER PULLING THIS COMMIT.
 
 General:
+- [1] Fixed reconnection bug. Now, when a player leaves the match in any stage, lobby and the match itself have different ways to deal with the 
+   disconnection of a player; lobby resets itself and match just sends the remaining player back to main menu.
+
+C++ classes: 
+- AMainMenuGM:
+      Added variables:
+        Exposed to BP:
+          Protected
+            Game:
+                bCanChangeFromThisState => boolean (protects the state machine from us changing the state from MatchState::EnteringMap or MatchState::LeavingMap) [1]
+      Added overrided virtual void method Logout; takes an AController representing the exiting controller and handles logout operations (calls Super); 
+       not really in use. [1] 
+      Added void method BP_SetMatchState, category Game; wrapper for AGameMode method SetGameState. This is more secure as it does not let us change to of from 
+       MatchState::EnteringMap or MatchState::LeavingMap. [1]
+              
+Blueprint classes:
+- BP_GameOverUI:
+      Added Overrided event Tick; now checks Hidden (replicated boolean variable from parent C++ class AActor); when true, disables the widget stored 
+       in GameOver; when false, enables the same widget. [1]
+
+- MPMotionControllerPawn:
+      Added function DisableWidgetInteraction, category Interaction; this function disables the ability to interact with widgets. [1]
+
+- MotionController_PC:
+      Added variables:
+        Default:
+            GameOverWidget => BP_GameOverUI (holds a reference to the AActor that displays the game over menu) [1]
+      Added event ClientAbortGame, an owning player rpc; this is called when the match state is MatchState::Aborted and just sends the player to main menu. [1]
+      Added event ClienHandleRestart, an owning player rpc; this is called when the lobby needs to restart and disables interaction before turning the 
+       AActor inside GameOverWidget invisible. [1]
+      Modified event ClientHandleEndOfMatch; now checks if GameOverWidget is valid; if valid just turns the AActor inside it visible again; if not valid 
+       just performs the original operations. [1]
+
+- MultiplayerGM:
+      Added overrided event OnLogout; removes the exiting PC from PlayerControllerList and set the machine state to MatchState::Aborted. [1]
+      Modified event RestartMatch; now called AbortGame, just calls ClientAbortGame for each PC still in the list. [1]
+      Modified overrided event OnSetMatchState; now sets AMainMenuGM variable bCanChangeFromThisState to true or false depending on which state the state 
+       machine is in; when the state is MatchState::Aborted, calls AbortGame. [1]
+
+- Lobby_GM:
+      Removed variables
+        Player Login:
+            InvertedIterator: not necessary since the tarfet is always Dummy_BP.
+      Added event RemoveMenu; just calls ClientHandeRestat for each PC still in the PlayerControllerList. [1]
+      Added overrided event OnLogout; clears the exiting PC and removes it from PlayerControllerList; removes a boolean from LoadedList corresponding to 
+       the exiting PC; resets Lobby_GM parameters relating to player logins; sets the match state to MatchState::WaintingtoStart. [1]
+      Modified overrided event OnSetMatchState; now sets AMainMenuGM variable bCanChangeFromThisState to true or false depending on which state the state 
+       machine is in; when the state is MatchState::WaintingtoStart, set WaitingToStartMessage back to its initial value and calls RemoveMenu before 
+       setting bUseSeamlessTravel. [1]
+      Modified event ResetGM; no longer resets InvertedIterator.
+
+===================================================================================================================================================================
+Changes made to branch 4.16 on 2017/11/17:
+
+Note: There were changes to C++ code. COMPILE AFTER PULLING THIS COMMIT.
+
+General:
 - Added header file ECOPlayerStateBase.h, containing the C++ class AECOPlayerStateBase. This class is to be used as the basis for every player 
    state that requires custom behavior beyond what BPs provide.
 
