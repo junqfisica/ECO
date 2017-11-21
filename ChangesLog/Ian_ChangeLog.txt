@@ -1,3 +1,13 @@
+Changes made to branch 4.16 on 2017/11/20
+
+
+- General:
+	-Removed cloth Apex Sim from bones that where getting errors on Skeletal mesh
+	- Optimiazed fire ball PFX
+	**thiago: the material warnings I see are becuase of forward rendering. I looked it up and google and doesnt seem to be a big deal just a warning that features are not being used :) 
+
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/15
 
 
