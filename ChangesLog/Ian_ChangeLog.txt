@@ -1,3 +1,12 @@
+Changes made to branch 4.16 on 2017/11/21
+
+
+- General:
+	-added Damage text, added a spawn actor of class to Enemy AI. still doesnt work on MP
+	
+
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/20
 
 
