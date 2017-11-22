@@ -197,7 +197,7 @@ bool USteamGameInstance::FindSessionsInternal(TSharedPtr<const FUniqueNetId> Use
 		
 		SessionSearch->bIsLanQuery = bIsLAN;
 		SessionSearch->MaxSearchResults = 20;
-		SessionSearch->PingBucketSize = 70;
+		SessionSearch->PingBucketSize = 100;
 
 		/// We only want to set this Query Setting if "bIsPresence" is true
 		if (bIsPresence)

@@ -1,3 +1,9 @@
+Changes made to branch 4.16 on 2017/22/17:
+
+General:
+- [1] Increased chance of finding a match by increasing the ping bucket size to 100 ms.
+
+===================================================================================================================================================================
 Changes made to branch 4.16 on 2017/20/17:
 
 Note: There were changes to C++ code. COMPILE AFTER PULLING THIS COMMIT.
@@ -36,13 +42,13 @@ Blueprint classes:
       Modified event ClientHandleEndOfMatch; now checks if GameOverWidget is valid; if valid just turns the AActor inside it visible again; if not valid 
        just performs the original operations. [1]
 
-- MultiplayerGM:
-      Added overrided event OnLogout; removes the exiting PC from PlayerControllerList and set the machine state to MatchState::Aborted. [1]
+- MultiplayerGM: now a child of AMainMenuGM.
+      Added overrided event OnLogout; removes the exiting PC from PlayerControllerList and sets the machine state to MatchState::Aborted. [1]
       Modified event RestartMatch; now called AbortGame, just calls ClientAbortGame for each PC still in the list. [1]
       Modified overrided event OnSetMatchState; now sets AMainMenuGM variable bCanChangeFromThisState to true or false depending on which state the state 
        machine is in; when the state is MatchState::Aborted, calls AbortGame. [1]
 
-- Lobby_GM:
+- Lobby_GM: now a child of AMainMenuGM.
       Removed variables
         Player Login:
             InvertedIterator: not necessary since the tarfet is always Dummy_BP.
