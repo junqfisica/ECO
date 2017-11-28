@@ -1,3 +1,15 @@
+Changes made to branch 4.16 on 2017/11/27
+
+
+- General:
+	-Added EVERY Prototype first pass of IK body system
+		-New function calll "Update Hands"   (gets loc at rot of motioncontrollers)
+		-New Anim BP for IK skeletal mesh
+		-there is a variable in the player BP called IKBody_ON/OFF   turn this on to see IK body. I am aware it needs alot of work but its a proof of concept. im tryig to move the mesh about 10 units backwards on the relative X axis. feel free to help me out on that :)
+		
+
+
+================================================================================================================================================
 Changes made to branch 4.16 on 2017/11/21
 
 
