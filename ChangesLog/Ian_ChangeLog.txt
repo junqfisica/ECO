@@ -1,6 +1,13 @@
 Changes made to branch 4.16 on 2017/11/27
 
+- General:
+	-Added first pass on fire beam. works very similar to the wind one.
+	 	- having trouble getting it to work with tut targets in tut level. maybe thaigo could help me with that
+		-
+		
 
+================================================================================================================================================
+Changes made to branch 4.16 on 2017/11/21
 - General:
 	-Added EVERY Prototype first pass of IK body system
 		-New function calll "Update Hands"   (gets loc at rot of motioncontrollers)
