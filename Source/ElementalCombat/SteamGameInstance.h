@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/GameInstance.h"
+#include "ElementalCombat.h"
 #include "SteamGameInstance.generated.h"
 
 /**

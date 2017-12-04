@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include "CoreMinimal.h"
+#include "Engine.h"
 #include "GameFramework/SaveGame.h"
 #include "MotionTrackSaveSystem.generated.h"
 

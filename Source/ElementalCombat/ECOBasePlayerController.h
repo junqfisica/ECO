@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "ElementalCombat.h"
 #include "ECOBasePlayerController.generated.h"
 
 /**

@@ -1,18 +1,20 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "ElementalCombat.h"
 #include "MotionTrackSaveSystem.h"
 
 bool UMotionTrackSaveSystem::DoesFileExist(const FString Dir, const FString SaveFile, const FString FileExtension)
 {
-	FString TargetDir = FPaths::GameDir() + Dir;
+	//FString TargetDir = FPaths::GameDir() + Dir; UE4.16
+	FString TargetDir = FPaths::ProjectDir() + Dir;
 	return FPaths::FileExists(TargetDir + SaveFile + FileExtension);
 }
 
 bool UMotionTrackSaveSystem::CreateSaveFile(const FString Dir, const FString SaveFile, const FString FileExtension)
 {
 	// Create directory
-	FString TargetDir = FPaths::GameDir() + Dir;
+	//FString TargetDir = FPaths::GameDir() + Dir; UE4.16
+	FString TargetDir = FPaths::ProjectDir() + Dir;
+
 	IPlatformFile& PlatformFile = FPlatformFileManager::Get().GetPlatformFile();
 	if (!PlatformFile.DirectoryExists(*TargetDir))
 	{
@@ -38,7 +40,8 @@ bool UMotionTrackSaveSystem::CreateSaveFile(const FString Dir, const FString Sav
 bool UMotionTrackSaveSystem::SaveGameState(USaveGame * SaveGameObject, const FString Dir, const FString SaveFile, const FString FileExtension)
 {
 	// Get the file for writting data 
-	FString TargetDir = FPaths::GameDir() + Dir;
+	//FString TargetDir = FPaths::GameDir() + Dir; UE4.16
+	FString TargetDir = FPaths::ProjectDir() + Dir;
 
 	// Serialization
 	FBufferArchive MemoryWriter;
@@ -58,7 +61,8 @@ bool UMotionTrackSaveSystem::SaveGameState(USaveGame * SaveGameObject, const FSt
 USaveGame * UMotionTrackSaveSystem::LoadGameState(const FString Dir, const FString SaveFile, const FString FileExtension)
 {
 	// Get the file for reading data
-	FString TargetDir = FPaths::GameDir() + Dir;
+	//FString TargetDir = FPaths::GameDir() + Dir; UE4.16
+	FString TargetDir = FPaths::ProjectDir() + Dir;
 
 	// Read binary data to BinaryArray
 	TArray<uint8> BinaryArray;

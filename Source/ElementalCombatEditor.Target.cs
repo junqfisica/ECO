@@ -3,23 +3,13 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
+
 public class ElementalCombatEditorTarget : TargetRules
 {
-	public ElementalCombatEditorTarget(TargetInfo Target)
-	{
-		Type = TargetType.Editor;
-	}
+    public ElementalCombatEditorTarget(TargetInfo Target) : base(Target)
+    {
+        Type = TargetType.Editor;
 
-	//
-	// TargetRules interface.
-	//
-
-	public override void SetupBinaries(
-		TargetInfo Target,
-		ref List<UEBuildBinaryConfiguration> OutBuildBinaryConfigurations,
-		ref List<string> OutExtraModuleNames
-		)
-	{
-		OutExtraModuleNames.AddRange( new string[] { "ElementalCombat" } );
-	}
+        ExtraModuleNames.AddRange(new string[] { "ElementalCombat" });
+    }
 }
