@@ -1,6 +1,14 @@
 Changes made to branch 4.16 on 2017/11/27
 
 - General:
+	-polished fire beam
+	-polished Ik body. it is now turned on in fightarena. maybe carlos or thiago could add it to MP?
+	-
+	 
+		
+
+================================================================================================================================================
+- General:
 	-Added first pass on fire beam. works very similar to the wind one.
 	 	- having trouble getting it to work with tut targets in tut level. maybe thaigo could help me with that
 		-
